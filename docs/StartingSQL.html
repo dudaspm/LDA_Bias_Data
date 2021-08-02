@@ -1,0 +1,1030 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Start learning SQL in Google Colab &#8212; JupyterLab + Python</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">JupyterLab + Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   JupyterLab + Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Getting Starting
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Notebook%20Introduction.html">
+   Notebook Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Jupyter Lab
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction%20to%20JupyterLab.html">
+   Introduction to JupyterLab
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction%20to%20Python.html">
+   Introduction to Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Learning%20about%20Variables.html">
+   Learning about Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Comparisons.html">
+   Comparison Operators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="If-Else%20Conditions.html">
+   If-Else Conditions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Loops.html">
+   Loops
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Loading%20a%20Library.html">
+   Loading a Library
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Creating%20a%20Function.html">
+   Creating a Function
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Workshops
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Workshop%20Notebook.html">
+   Workshop Notebook
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Workshop%20Notebook-Abridged.html">
+   Workshop Notebook Abridged
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Example Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Shopping%20List.html">
+   Let’s create a shopping list!
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Guessing%20Game.html">
+   A Python guessing game for jupyter
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Matplotlib
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Getting%20Started%20with%20Matplotlib.html">
+   Getting Started with Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Tables%20to%20Idioms.html">
+   Tables to Idioms
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/StartingSQL.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        
+        
+        <a class="edit-button" href="https://github.com/dudaspm/JupyterLab-Python/edit/main/StartingSQL.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/dudaspm/JupyterLab-Python/main?urlpath=lab/tree/StartingSQL.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/dudaspm/JupyterLab-Python/blob/main/StartingSQL.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sql-start">
+   SQL Start
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-ddl-data-definition-language">
+     CREATE (DDL - Data Definition Language)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#insert-dml-data-manipulation-language">
+     INSERT (DML - Data Manipulation Language)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#select-dql-data-query-language">
+     SELECT (DQL - Data Query Language)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#drop-ddl-data-definition-language">
+     DROP (DDL - Data Definition Language)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#additional-sql">
+     Additional SQL
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p><a href="https://colab.research.google.com/github/dudaspm/Fall2020/blob/master/Org%20Data/SQL/StartingSQL.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<div class="section" id="start-learning-sql-in-google-colab">
+<h1>Start learning SQL in Google Colab<a class="headerlink" href="#start-learning-sql-in-google-colab" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>In this example, we will start using SQL in Google Colab Notebook.</p>
+<p>But first, let’s just remind ourselves some of the basics of Google Colab.</p>
+<p>Let’s start with just running a bit of “code.” The cell I am currently is a “Text” cell (using +Text). For code, we want to use a “code” cell (+Code). The below statement will just add two numbers together, nothing too fancy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<p>Your turn!</p>
+<ol class="simple">
+<li><p>Click on the “+Code” button in the top-left corner.</p></li>
+<li><p>Figure out the answer for the following math problem.
+\begin{equation*}
+(102939129381 / 231)  + 12300
+\end{equation*}</p></li>
+</ol>
+<p>Pretty easy so far, huh?</p>
+<p>OK, next to the SQL.</p>
+</div>
+<div class="section" id="sql-start">
+<h2>SQL Start<a class="headerlink" href="#sql-start" title="Permalink to this headline">¶</a></h2>
+<p>One of the cool tricks you can do in Jupyter Notebooks is something so amazing, you might even think its magic! Well, it technically is.</p>
+<p>Jupyter has a number of built in utilities, which they call <a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html">magic</a>. Don’t worry about trying to learn them all, and we only need one specific type of magic. SQL magic. Actually, we technically need %load_ext magic, but this will load SQL for us.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> sql
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">7600</span><span class="n">c8b786e3</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;load_ext&#39;</span><span class="p">,</span> <span class="s1">&#39;sql&#39;</span><span class="p">)</span>
+
+<span class="nn">c:\users\dudas\anaconda3\envs\wintest\lib\site-packages\IPython\core\interactiveshell.py</span> in <span class="ni">run_line_magic</span><span class="nt">(self, magic_name, line, _stack_depth)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2346</span>                 <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;local_ns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_local_scope</span><span class="p">(</span><span class="n">stack_depth</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2347</span>             <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">builtin_trap</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2348</span>                 <span class="n">result</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2349</span>             <span class="k">return</span> <span class="n">result</span>
+<span class="g g-Whitespace">   </span><span class="mi">2350</span> 
+
+<span class="nn">&lt;decorator-gen-58&gt;</span> in <span class="ni">load_ext</span><span class="nt">(self, module_str)</span>
+
+<span class="nn">c:\users\dudas\anaconda3\envs\wintest\lib\site-packages\IPython\core\magic.py</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(f, *a, **k)</span>
+<span class="g g-Whitespace">    </span><span class="mi">185</span>     <span class="c1"># but it&#39;s overkill for just that one bit of state.</span>
+<span class="g g-Whitespace">    </span><span class="mi">186</span>     <span class="k">def</span> <span class="nf">magic_deco</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">187</span>         <span class="n">call</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">f</span><span class="p">,</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">k</span><span class="p">:</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">k</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">188</span> 
+<span class="g g-Whitespace">    </span><span class="mi">189</span>         <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
+
+<span class="nn">c:\users\dudas\anaconda3\envs\wintest\lib\site-packages\IPython\core\magics\extension.py</span> in <span class="ni">load_ext</span><span class="nt">(self, module_str)</span>
+<span class="g g-Whitespace">     </span><span class="mi">31</span>         <span class="k">if</span> <span class="ow">not</span> <span class="n">module_str</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span>             <span class="k">raise</span> <span class="n">UsageError</span><span class="p">(</span><span class="s1">&#39;Missing module name.&#39;</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">33</span>         <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">shell</span><span class="o">.</span><span class="n">extension_manager</span><span class="o">.</span><span class="n">load_extension</span><span class="p">(</span><span class="n">module_str</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">34</span> 
+<span class="g g-Whitespace">     </span><span class="mi">35</span>         <span class="k">if</span> <span class="n">res</span> <span class="o">==</span> <span class="s1">&#39;already loaded&#39;</span><span class="p">:</span>
+
+<span class="nn">c:\users\dudas\anaconda3\envs\wintest\lib\site-packages\IPython\core\extensions.py</span> in <span class="ni">load_extension</span><span class="nt">(self, module_str)</span>
+<span class="g g-Whitespace">     </span><span class="mi">78</span>             <span class="k">if</span> <span class="n">module_str</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">79</span>                 <span class="k">with</span> <span class="n">prepended_to_syspath</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ipython_extension_dir</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">80</span>                     <span class="n">mod</span> <span class="o">=</span> <span class="n">import_module</span><span class="p">(</span><span class="n">module_str</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">81</span>                     <span class="k">if</span> <span class="n">mod</span><span class="o">.</span><span class="vm">__file__</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ipython_extension_dir</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">82</span>                         <span class="nb">print</span><span class="p">((</span><span class="s2">&quot;Loading extensions from </span><span class="si">{dir}</span><span class="s2"> is deprecated. &quot;</span>
+
+<span class="nn">c:\users\dudas\anaconda3\envs\wintest\lib\importlib\__init__.py</span> in <span class="ni">import_module</span><span class="nt">(name, package)</span>
+<span class="g g-Whitespace">    </span><span class="mi">125</span>                 <span class="k">break</span>
+<span class="g g-Whitespace">    </span><span class="mi">126</span>             <span class="n">level</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="ne">--&gt; </span><span class="mi">127</span>     <span class="k">return</span> <span class="n">_bootstrap</span><span class="o">.</span><span class="n">_gcd_import</span><span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="n">level</span><span class="p">:],</span> <span class="n">package</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">128</span> 
+<span class="g g-Whitespace">    </span><span class="mi">129</span> 
+
+<span class="nn">c:\users\dudas\anaconda3\envs\wintest\lib\importlib\_bootstrap.py</span> in <span class="ni">_gcd_import</span><span class="nt">(name, package, level)</span>
+
+<span class="nn">c:\users\dudas\anaconda3\envs\wintest\lib\importlib\_bootstrap.py</span> in <span class="ni">_find_and_load</span><span class="nt">(name, import_)</span>
+
+<span class="nn">c:\users\dudas\anaconda3\envs\wintest\lib\importlib\_bootstrap.py</span> in <span class="ni">_find_and_load_unlocked</span><span class="nt">(name, import_)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;sql&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is a built-in Python SQL toolkit provide by (another magic reference) <a class="reference external" href="https://www.sqlalchemy.org/">SQL Alchemy</a>. Again, you don’t need to worry too much about SQL Alchemy, only that we can now use SQL code in our notebook.</p>
+<p>The next step is to create a database, so in this case we use the following command. Note: we will be expanding on this through-out the semester, but for now… it creates a single, SQLite database for this notebook. Also, if the command runs <em>successfully</em>, you should see ” ‘Connected: &#64;studentDatabase.db’ “</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">sql</span> sqlite:///studentDatabase.db
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Connected: @studentDatabase.db&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>this is your database to add tables and insert data, BUT this is temporary. So, do not assume that this will save between sessions. If you want to save this database for later, go to left (where the folder is), select the folder, and then download the database (right click on the database).</p>
+<p>###Types of SQL Interactions</p>
+<p>Here is a list of common interactions with database.</p>
+<p><img alt="SQL Command Types" src="https://raw.githubusercontent.com/dudaspm/IST210-Spring2020/master/SQL/images/SQLCommandTypes.png" /></p>
+<p>Now it is time to create our first table. This is where the SQL commands become available to us. The first command is…</p>
+<div class="section" id="create-ddl-data-definition-language">
+<h3>CREATE (DDL - Data Definition Language)<a class="headerlink" href="#create-ddl-data-definition-language" title="Permalink to this headline">¶</a></h3>
+<p>Create will create a table. In this case, we will call the table <em>Student</em> and we will need to tell the table the names of the attributes and what <em>type</em> of attribute they are as well. For now, we will be using only using 3 types:</p>
+<ul class="simple">
+<li><p>INTEGER - whole numbers (example: 3)</p></li>
+<li><p>REAL - floats or real numbers (example: 3.14)</p></li>
+<li><p>TEXT - text information (example: “hello world!”)</p></li>
+</ul>
+<p>For us, we need 6 attributes and all 6 will be text.</p>
+<p>Let’s create 1 table for student information.</p>
+<p><img alt="student table" src="https://raw.githubusercontent.com/dudaspm/Fall2020/master/Org%20Data/Images/studentER.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>   
+CREATE TABLE Student(PSUID text primary key, firstName text, lastName text, streetAddress text, city text, state text, gpa real);
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///studentDatabase.db
+Done.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s add some data to this table. In this case we use…</p>
+</div>
+<div class="section" id="insert-dml-data-manipulation-language">
+<h3>INSERT (DML - Data Manipulation Language)<a class="headerlink" href="#insert-dml-data-manipulation-language" title="Permalink to this headline">¶</a></h3>
+<p>Insert does as it sounds. Insert data into the database.
+The syntax for this is:</p>
+<p>INSERT INTO <em>name of the table</em> VALUES (<em>data for PSUID</em>,<em>lastname</em>, <em>firstname</em>)</p>
+<p>For now, I will just make up a few tuples.</p>
+<p>Also, let’s note something. When to use:</p>
+<ul class="simple">
+<li></li>
+<li></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+INSERT INTO Student VALUES(&#39;9139128181&#39;,&#39;David&#39;,&#39;Practice&#39;,&#39;123 Apple Street&#39;,&#39;State College&#39;,&#39;PA&#39;,3.78);
+INSERT INTO Student VALUES(&#39;9771271281&#39;,&#39;Susan&#39;,&#39;Practice&#39;,&#39;452 Banana Avenue&#39;,&#39;State College&#39;,&#39;PA&#39;,3.12);
+INSERT INTO Student VALUES(&#39;9383818823&#39;,&#39;Lee&#39;,&#39;Example&#39;,&#39;836 Carrot Circle&#39;,&#39;Cleveland&#39;,&#39;OH&#39;,2.68);
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///studentDatabase.db
+1 rows affected.
+1 rows affected.
+1 rows affected.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
+</pre></div>
+</div>
+</div>
+</div>
+<p>OK, we have a Database. A table in this database. 3 tuples in our table. The last thing we need is a way to access this data, view the data, and do something with the data. That’s where we use…</p>
+</div>
+<div class="section" id="select-dql-data-query-language">
+<h3>SELECT (DQL - Data Query Language)<a class="headerlink" href="#select-dql-data-query-language" title="Permalink to this headline">¶</a></h3>
+<p>SELECT allows us to select all or part of the data. For now, all we want to do is get back from the table all the data in the table. For this we will use:</p>
+<p>SELECT  <em>(wildcard!)</em> FROM <em>table name</em></p>
+<p>The wildcard basically means <em>All the Attributes</em> in the table</p>
+<p>We can also <strong>limit</strong> the number of tuples returned.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+SELECT * FROM Student limit 2;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///studentDatabase.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <tr>
+        <th>PSUID</th>
+        <th>firstName</th>
+        <th>lastName</th>
+        <th>streetAddress</th>
+        <th>city</th>
+        <th>state</th>
+        <th>gpa</th>
+    </tr>
+    <tr>
+        <td>9139128181</td>
+        <td>David</td>
+        <td>Practice</td>
+        <td>123 Apple Street</td>
+        <td>State College</td>
+        <td>PA</td>
+        <td>3.78</td>
+    </tr>
+    <tr>
+        <td>9771271281</td>
+        <td>Susan</td>
+        <td>Practice</td>
+        <td>452 Banana Avenue</td>
+        <td>State College</td>
+        <td>PA</td>
+        <td>3.12</td>
+    </tr>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+SELECT * FROM Student;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///studentDatabase.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <tr>
+        <th>PSUID</th>
+        <th>firstName</th>
+        <th>lastName</th>
+        <th>streetAddress</th>
+        <th>city</th>
+        <th>state</th>
+    </tr>
+    <tr>
+        <td>9139128181</td>
+        <td>David</td>
+        <td>Practice</td>
+        <td>123 Apple Street</td>
+        <td>State College</td>
+        <td>PA</td>
+    </tr>
+    <tr>
+        <td>9771271281</td>
+        <td>Susan</td>
+        <td>Practice</td>
+        <td>452 Banana Avenue</td>
+        <td>State College</td>
+        <td>PA</td>
+    </tr>
+    <tr>
+        <td>9383818823</td>
+        <td>Lee</td>
+        <td>Example</td>
+        <td>836 Carrot Circle</td>
+        <td>Cleveland</td>
+        <td>OH</td>
+    </tr>
+</table></div></div>
+</div>
+<p>Other things we can do with SELECT.</p>
+<p>Let’s say we want to know which database we are connected to and what tables we have created. We would use the following SQL.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">sql</span> SELECT name FROM sqlite_master;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///studentDatabase.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <tr>
+        <th>name</th>
+    </tr>
+    <tr>
+        <td>Student</td>
+    </tr>
+    <tr>
+        <td>sqlite_autoindex_Student_1</td>
+    </tr>
+</table></div></div>
+</div>
+</div>
+<div class="section" id="drop-ddl-data-definition-language">
+<h3>DROP (DDL - Data Definition Language)<a class="headerlink" href="#drop-ddl-data-definition-language" title="Permalink to this headline">¶</a></h3>
+<p>Great! We created a table and put some data into the table, but how do we… destroy it?</p>
+<p>DROP is used to “delete” the table and all tuples.</p>
+<p>** WARNING WARNING **</p>
+<p>A table that is dropped is completely deleted, including ALL DATA. Be careful with this.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+DROP TABLE Student;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///studentDatabase.db
+Done.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
+</pre></div>
+</div>
+</div>
+</div>
+<p>So, now we check all the tables we have…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">sql</span> SELECT name FROM sqlite_master;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///studentDatabase.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <tr>
+        <th>name</th>
+    </tr>
+</table></div></div>
+</div>
+</div>
+<div class="section" id="additional-sql">
+<h3>Additional SQL<a class="headerlink" href="#additional-sql" title="Permalink to this headline">¶</a></h3>
+<p>Here are the additional commands will be learning about in the class (we will not cover all of these, but most)</p>
+<p><img alt="Data Manipulation 1" src="https://raw.githubusercontent.com/dudaspm/IST210-Spring2020/master/SQL/images/SQLManipulation1.png" /></p>
+<p><img alt="Data Manipulation 2" src="https://raw.githubusercontent.com/dudaspm/IST210-Spring2020/master/SQL/images/SQLManipulation2.png" /></p>
+<p>What is the first and last name of students from PA?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+SELECT * FROM student;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///studentDatabase.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <tr>
+        <th>PSUID</th>
+        <th>firstName</th>
+        <th>lastName</th>
+        <th>streetAddress</th>
+        <th>city</th>
+        <th>state</th>
+        <th>gpa</th>
+    </tr>
+    <tr>
+        <td>9139128181</td>
+        <td>David</td>
+        <td>Practice</td>
+        <td>123 Apple Street</td>
+        <td>State College</td>
+        <td>PA</td>
+        <td>3.78</td>
+    </tr>
+    <tr>
+        <td>9771271281</td>
+        <td>Susan</td>
+        <td>Practice</td>
+        <td>452 Banana Avenue</td>
+        <td>State College</td>
+        <td>PA</td>
+        <td>3.12</td>
+    </tr>
+    <tr>
+        <td>9383818823</td>
+        <td>Lee</td>
+        <td>Example</td>
+        <td>836 Carrot Circle</td>
+        <td>Cleveland</td>
+        <td>OH</td>
+        <td>2.68</td>
+    </tr>
+</table></div></div>
+</div>
+<p>What is the street address of students from Cleveland?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+SELECT * FROM student;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///studentDatabase.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <tr>
+        <th>PSUID</th>
+        <th>firstName</th>
+        <th>lastName</th>
+        <th>streetAddress</th>
+        <th>city</th>
+        <th>state</th>
+        <th>gpa</th>
+    </tr>
+    <tr>
+        <td>9139128181</td>
+        <td>David</td>
+        <td>Practice</td>
+        <td>123 Apple Street</td>
+        <td>State College</td>
+        <td>PA</td>
+        <td>3.78</td>
+    </tr>
+    <tr>
+        <td>9771271281</td>
+        <td>Susan</td>
+        <td>Practice</td>
+        <td>452 Banana Avenue</td>
+        <td>State College</td>
+        <td>PA</td>
+        <td>3.12</td>
+    </tr>
+    <tr>
+        <td>9383818823</td>
+        <td>Lee</td>
+        <td>Example</td>
+        <td>836 Carrot Circle</td>
+        <td>Cleveland</td>
+        <td>OH</td>
+        <td>2.68</td>
+    </tr>
+</table></div></div>
+</div>
+<p>What are all the attributes of students from PA and with a GPA greater than 3.5?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+SELECT * FROM student;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///studentDatabase.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <tr>
+        <th>PSUID</th>
+        <th>firstName</th>
+        <th>lastName</th>
+        <th>streetAddress</th>
+        <th>city</th>
+        <th>state</th>
+        <th>gpa</th>
+    </tr>
+    <tr>
+        <td>9139128181</td>
+        <td>David</td>
+        <td>Practice</td>
+        <td>123 Apple Street</td>
+        <td>State College</td>
+        <td>PA</td>
+        <td>3.78</td>
+    </tr>
+    <tr>
+        <td>9771271281</td>
+        <td>Susan</td>
+        <td>Practice</td>
+        <td>452 Banana Avenue</td>
+        <td>State College</td>
+        <td>PA</td>
+        <td>3.12</td>
+    </tr>
+    <tr>
+        <td>9383818823</td>
+        <td>Lee</td>
+        <td>Example</td>
+        <td>836 Carrot Circle</td>
+        <td>Cleveland</td>
+        <td>OH</td>
+        <td>2.68</td>
+    </tr>
+</table></div></div>
+</div>
+<p>Create the following table:</p>
+<p><img alt="course table" src="https://raw.githubusercontent.com/dudaspm/Fall2020/master/Org%20Data/Images/course.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+SELECT * FROM student;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///studentDatabase.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <tr>
+        <th>PSUID</th>
+        <th>firstName</th>
+        <th>lastName</th>
+        <th>streetAddress</th>
+        <th>city</th>
+        <th>state</th>
+        <th>gpa</th>
+    </tr>
+    <tr>
+        <td>9139128181</td>
+        <td>David</td>
+        <td>Practice</td>
+        <td>123 Apple Street</td>
+        <td>State College</td>
+        <td>PA</td>
+        <td>3.78</td>
+    </tr>
+    <tr>
+        <td>9771271281</td>
+        <td>Susan</td>
+        <td>Practice</td>
+        <td>452 Banana Avenue</td>
+        <td>State College</td>
+        <td>PA</td>
+        <td>3.12</td>
+    </tr>
+    <tr>
+        <td>9383818823</td>
+        <td>Lee</td>
+        <td>Example</td>
+        <td>836 Carrot Circle</td>
+        <td>Cleveland</td>
+        <td>OH</td>
+        <td>2.68</td>
+    </tr>
+</table></div></div>
+</div>
+<p>Create at least 3 tuples for this table.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+SELECT * FROM student;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///studentDatabase.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <tr>
+        <th>PSUID</th>
+        <th>firstName</th>
+        <th>lastName</th>
+        <th>streetAddress</th>
+        <th>city</th>
+        <th>state</th>
+        <th>gpa</th>
+    </tr>
+    <tr>
+        <td>9139128181</td>
+        <td>David</td>
+        <td>Practice</td>
+        <td>123 Apple Street</td>
+        <td>State College</td>
+        <td>PA</td>
+        <td>3.78</td>
+    </tr>
+    <tr>
+        <td>9771271281</td>
+        <td>Susan</td>
+        <td>Practice</td>
+        <td>452 Banana Avenue</td>
+        <td>State College</td>
+        <td>PA</td>
+        <td>3.12</td>
+    </tr>
+    <tr>
+        <td>9383818823</td>
+        <td>Lee</td>
+        <td>Example</td>
+        <td>836 Carrot Circle</td>
+        <td>Cleveland</td>
+        <td>OH</td>
+        <td>2.68</td>
+    </tr>
+</table></div></div>
+</div>
+<p>Now, delete the student table.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+SELECT * FROM student;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "dudaspm/JupyterLab-Python",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Patrick M. Dudas<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

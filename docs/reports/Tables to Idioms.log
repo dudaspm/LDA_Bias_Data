@@ -1,0 +1,93 @@
+Traceback (most recent call last):
+  File "c:\users\dudas\anaconda3\envs\wintest\lib\site-packages\jupyter_cache\executors\utils.py", line 56, in single_nb_execution
+    record_timing=False,
+  File "c:\users\dudas\anaconda3\envs\wintest\lib\site-packages\nbclient\client.py", line 1112, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "c:\users\dudas\anaconda3\envs\wintest\lib\site-packages\nbclient\util.py", line 74, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "c:\users\dudas\anaconda3\envs\wintest\lib\site-packages\nbclient\util.py", line 53, in just_run
+    return loop.run_until_complete(coro)
+  File "c:\users\dudas\anaconda3\envs\wintest\lib\asyncio\base_events.py", line 587, in run_until_complete
+    return future.result()
+  File "c:\users\dudas\anaconda3\envs\wintest\lib\site-packages\nbclient\client.py", line 554, in async_execute
+    cell, index, execution_count=self.code_cells_executed + 1
+  File "c:\users\dudas\anaconda3\envs\wintest\lib\site-packages\nbclient\client.py", line 857, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "c:\users\dudas\anaconda3\envs\wintest\lib\site-packages\nbclient\client.py", line 760, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import numpy as np
+# creating the bar plot
+top10 = ["California","Texas","Florida","New York State","Illinois","Pennsylvania","Ohio","Georgia","North Carolina","Michigan"]
+yData = data[data.date==yesterdaysDate]
+sortedData = yData.sort_values(by=['total_vaccinations'])
+top10Yest = sortedData[sortedData.location.isin(top10)]
+
+twoData = data[data.date==twoDays]
+sortedData = twoData.sort_values(by=['total_vaccinations'])
+top102days = sortedData[sortedData.location.isin(top10)]
+
+x = np.arange(len(sortedData[sortedData.location.isin(top10)].location))  # the label locations
+width = 0.35  # the width of the bars
+
+px = 1/plt.rcParams['figure.dpi']  # pixel in inches
+fig, ax = plt.subplots(1,figsize=(1000*px, 300*px))
+ax.bar(x - width/2, top102days.total_vaccinations, color ='steelblue', width = 0.4, label="Yesterday")
+ax.bar(x + width/2, top10Yest.total_vaccinations, color ='maroon', width = 0.4, label="Two Days")
+# Add labels, a title and grid lines to the plot
+ax.set_xlabel( 'Locations' )
+ax.set_ylabel( 'Total Vaccinations (x100000)' )
+ax.set_xticks(x)
+ax.set_xticklabels(sortedData[sortedData.location.isin(top10)].location)
+
+ax.legend()
+
+plt.title( 'Vaccinations Yesterday per Location' )
+# Show the figure (here in Jupyter)
+plt.show( fig )
+plt.close( fig )
+------------------
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mValueError[0m                                Traceback (most recent call last)
+[1;32m<ipython-input-8-0d5e4e655b22>[0m in [0;36m<module>[1;34m[0m
+[0;32m     16[0m [0mfig[0m[1;33m,[0m [0max[0m [1;33m=[0m [0mplt[0m[1;33m.[0m[0msubplots[0m[1;33m([0m[1;36m1[0m[1;33m,[0m[0mfigsize[0m[1;33m=[0m[1;33m([0m[1;36m1000[0m[1;33m*[0m[0mpx[0m[1;33m,[0m [1;36m300[0m[1;33m*[0m[0mpx[0m[1;33m)[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0;32m     17[0m [0max[0m[1;33m.[0m[0mbar[0m[1;33m([0m[0mx[0m [1;33m-[0m [0mwidth[0m[1;33m/[0m[1;36m2[0m[1;33m,[0m [0mtop102days[0m[1;33m.[0m[0mtotal_vaccinations[0m[1;33m,[0m [0mcolor[0m [1;33m=[0m[1;34m'steelblue'[0m[1;33m,[0m [0mwidth[0m [1;33m=[0m [1;36m0.4[0m[1;33m,[0m [0mlabel[0m[1;33m=[0m[1;34m"Yesterday"[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[1;32m---> 18[1;33m [0max[0m[1;33m.[0m[0mbar[0m[1;33m([0m[0mx[0m [1;33m+[0m [0mwidth[0m[1;33m/[0m[1;36m2[0m[1;33m,[0m [0mtop10Yest[0m[1;33m.[0m[0mtotal_vaccinations[0m[1;33m,[0m [0mcolor[0m [1;33m=[0m[1;34m'maroon'[0m[1;33m,[0m [0mwidth[0m [1;33m=[0m [1;36m0.4[0m[1;33m,[0m [0mlabel[0m[1;33m=[0m[1;34m"Two Days"[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0m[0;32m     19[0m [1;31m# Add labels, a title and grid lines to the plot[0m[1;33m[0m[1;33m[0m[1;33m[0m[0m
+[0;32m     20[0m [0max[0m[1;33m.[0m[0mset_xlabel[0m[1;33m([0m [1;34m'Locations'[0m [1;33m)[0m[1;33m[0m[1;33m[0m[0m
+
+[1;32mc:\users\dudas\anaconda3\envs\wintest\lib\site-packages\matplotlib\__init__.py[0m in [0;36minner[1;34m(ax, data, *args, **kwargs)[0m
+[0;32m   1359[0m     [1;32mdef[0m [0minner[0m[1;33m([0m[0max[0m[1;33m,[0m [1;33m*[0m[0margs[0m[1;33m,[0m [0mdata[0m[1;33m=[0m[1;32mNone[0m[1;33m,[0m [1;33m**[0m[0mkwargs[0m[1;33m)[0m[1;33m:[0m[1;33m[0m[1;33m[0m[0m
+[0;32m   1360[0m         [1;32mif[0m [0mdata[0m [1;32mis[0m [1;32mNone[0m[1;33m:[0m[1;33m[0m[1;33m[0m[0m
+[1;32m-> 1361[1;33m             [1;32mreturn[0m [0mfunc[0m[1;33m([0m[0max[0m[1;33m,[0m [1;33m*[0m[0mmap[0m[1;33m([0m[0msanitize_sequence[0m[1;33m,[0m [0margs[0m[1;33m)[0m[1;33m,[0m [1;33m**[0m[0mkwargs[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0m[0;32m   1362[0m [1;33m[0m[0m
+[0;32m   1363[0m         [0mbound[0m [1;33m=[0m [0mnew_sig[0m[1;33m.[0m[0mbind[0m[1;33m([0m[0max[0m[1;33m,[0m [1;33m*[0m[0margs[0m[1;33m,[0m [1;33m**[0m[0mkwargs[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+
+[1;32mc:\users\dudas\anaconda3\envs\wintest\lib\site-packages\matplotlib\axes\_axes.py[0m in [0;36mbar[1;34m(self, x, height, width, bottom, align, **kwargs)[0m
+[0;32m   2304[0m         x, height, width, y, linewidth, hatch = np.broadcast_arrays(
+[0;32m   2305[0m             [1;31m# Make args iterable too.[0m[1;33m[0m[1;33m[0m[1;33m[0m[0m
+[1;32m-> 2306[1;33m             np.atleast_1d(x), height, width, y, linewidth, hatch)
+[0m[0;32m   2307[0m [1;33m[0m[0m
+[0;32m   2308[0m         [1;31m# Now that units have been converted, set the tick locations.[0m[1;33m[0m[1;33m[0m[1;33m[0m[0m
+
+[1;32m<__array_function__ internals>[0m in [0;36mbroadcast_arrays[1;34m(*args, **kwargs)[0m
+
+[1;32mc:\users\dudas\anaconda3\envs\wintest\lib\site-packages\numpy\lib\stride_tricks.py[0m in [0;36mbroadcast_arrays[1;34m(subok, *args)[0m
+[0;32m    536[0m     [0margs[0m [1;33m=[0m [1;33m[[0m[0mnp[0m[1;33m.[0m[0marray[0m[1;33m([0m[0m_m[0m[1;33m,[0m [0mcopy[0m[1;33m=[0m[1;32mFalse[0m[1;33m,[0m [0msubok[0m[1;33m=[0m[0msubok[0m[1;33m)[0m [1;32mfor[0m [0m_m[0m [1;32min[0m [0margs[0m[1;33m][0m[1;33m[0m[1;33m[0m[0m
+[0;32m    537[0m [1;33m[0m[0m
+[1;32m--> 538[1;33m     [0mshape[0m [1;33m=[0m [0m_broadcast_shape[0m[1;33m([0m[1;33m*[0m[0margs[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0m[0;32m    539[0m [1;33m[0m[0m
+[0;32m    540[0m     [1;32mif[0m [0mall[0m[1;33m([0m[0marray[0m[1;33m.[0m[0mshape[0m [1;33m==[0m [0mshape[0m [1;32mfor[0m [0marray[0m [1;32min[0m [0margs[0m[1;33m)[0m[1;33m:[0m[1;33m[0m[1;33m[0m[0m
+
+[1;32mc:\users\dudas\anaconda3\envs\wintest\lib\site-packages\numpy\lib\stride_tricks.py[0m in [0;36m_broadcast_shape[1;34m(*args)[0m
+[0;32m    418[0m     [1;31m# use the old-iterator because np.nditer does not handle size 0 arrays[0m[1;33m[0m[1;33m[0m[1;33m[0m[0m
+[0;32m    419[0m     [1;31m# consistently[0m[1;33m[0m[1;33m[0m[1;33m[0m[0m
+[1;32m--> 420[1;33m     [0mb[0m [1;33m=[0m [0mnp[0m[1;33m.[0m[0mbroadcast[0m[1;33m([0m[1;33m*[0m[0margs[0m[1;33m[[0m[1;33m:[0m[1;36m32[0m[1;33m][0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0m[0;32m    421[0m     [1;31m# unfortunately, it cannot handle 32 or more arguments directly[0m[1;33m[0m[1;33m[0m[1;33m[0m[0m
+[0;32m    422[0m     [1;32mfor[0m [0mpos[0m [1;32min[0m [0mrange[0m[1;33m([0m[1;36m32[0m[1;33m,[0m [0mlen[0m[1;33m([0m[0margs[0m[1;33m)[0m[1;33m,[0m [1;36m31[0m[1;33m)[0m[1;33m:[0m[1;33m[0m[1;33m[0m[0m
+
+[1;31mValueError[0m: shape mismatch: objects cannot be broadcast to a single shape
+ValueError: shape mismatch: objects cannot be broadcast to a single shape
+

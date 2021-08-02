@@ -1,0 +1,770 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creating a Function - 🐲 &#8212; JupyterLab + Python</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Workshop Notebook Abridged" href="Workshop%20Notebook-Abridged.html" />
+    <link rel="prev" title="Loading a Library - 🐠" href="Loading%20a%20Library%20-%20%F0%9F%90%A0.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">JupyterLab + Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   JupyterLab + Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Getting Starting
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Notebook%20Introduction%20-%20%F0%9F%90%B8.html">
+   Notebook Introduction - 🐸
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Jupyter Lab
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction%20to%20JupyterLab%20-%20%F0%9F%90%98.html">
+   Introduction to JupyterLab - 🐘
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction%20to%20Python%20-%20%F0%9F%90%A7.html">
+   Introduction to Python - 🐧
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Learning%20about%20Variables%20-%20%F0%9F%90%B3.html">
+   Learning about Variables - 🐳
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Comparisons%20-%20%F0%9F%90%AD.html">
+   Comparisons - 🐭
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="If-Else%20Conditions%20-%20%F0%9F%90%B4.html">
+   If-Else Conditions - 🐴
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Loops%20-%20%F0%9F%90%A8.html">
+   Loops - 🐨
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Loading%20a%20Library%20-%20%F0%9F%90%A0.html">
+   Loading a Library - 🐠
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Creating a Function - 🐲
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Workshops
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Workshop%20Notebook-Abridged.html">
+   Workshop Notebook Abridged
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Example Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Shopping%20List.html">
+   Let’s create a shopping list!
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Guessing%20Game.html">
+   A Python guessing game for jupyter
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Matplotlib
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Getting%20Started%20with%20Matplotlib.html">
+   Getting Started with Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Tables%20to%20Idioms.html">
+   Tables to Idioms
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Creating a Function - 🐲.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        
+        
+        <a class="edit-button" href="https://github.com/dudaspm/JupyterLab-Python/edit/main/Creating a Function - 🐲.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/dudaspm/JupyterLab-Python/main?urlpath=lab/tree/Creating a Function - 🐲.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/dudaspm/JupyterLab-Python/blob/main/Creating a Function - 🐲.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-our-own-function">
+   Creating Our Own Function
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multiple-inputs-and-outputs">
+     Multiple inputs and outputs
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#multiple-output-function">
+       Multiple Output Function
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#output-list">
+       Output: List
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#output-multiple-variables">
+       Output: Multiple Variables
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#multiple-input-function">
+       Multiple Input Function
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions-calling-other-functions">
+     Functions calling other functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#recursive-functions">
+     Recursive Functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#function-gotcha">
+     Function Gotcha! 😆
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#your-turn">
+   Your Turn
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="creating-a-function">
+<h1>Creating a Function - 🐲<a class="headerlink" href="#creating-a-function" title="Permalink to this headline">¶</a></h1>
+<p>Functions allow us to do repeated tasks easily by writing the code only once.  Functions will have a name, inputs, and outputs and can be called anywhere the task is repeated.</p>
+<p>There are functions that are built into python; for example, we have already been using the type() function, which tells us the type of variable we are using.  Note that print is also a function!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aVal</span> <span class="o">=</span> <span class="mf">10.0</span>
+<span class="nb">print</span><span class="p">(</span> <span class="nb">type</span><span class="p">(</span> <span class="n">aVal</span> <span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;float&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Functions have four typical parts:</p>
+<ul class="simple">
+<li><p>Name - what you call your function</p></li>
+<li><p>Input arguments - what you provide</p></li>
+<li><p>Outputs - what the function gives back</p></li>
+<li><p>Math/Magic - what the function does</p></li>
+</ul>
+<div class="section" id="creating-our-own-function">
+<h2>Creating Our Own Function<a class="headerlink" href="#creating-our-own-function" title="Permalink to this headline">¶</a></h2>
+<p>In python, we use def to define a function with the function name and inputs followed by a colon.  The python function is then separated from the rest of the code by a tab. Some languages use braces rather than indentation.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">functionName</span><span class="p">(</span> <span class="n">inputs</span> <span class="p">):</span>
+    <span class="c1"># Operate on the inputs</span>
+    <span class="n">ouputs</span> <span class="o">=</span> <span class="n">inputs</span> <span class="o">+</span> <span class="mi">5</span>
+    <span class="c1"># Return what we want to back</span>
+    <span class="k">return</span> <span class="n">outputs</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Let’s look at an example function, which changes degrees Fahrenheit to Celsius.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">changeFromFToC</span><span class="p">(</span> <span class="n">farVal</span> <span class="p">):</span>
+    <span class="n">cVal</span> <span class="o">=</span> <span class="p">(</span><span class="n">farVal</span> <span class="o">-</span> <span class="mf">32.0</span><span class="p">)</span> <span class="o">*</span> <span class="mf">5.0</span> <span class="o">/</span> <span class="mf">9.0</span>
+    <span class="k">return</span> <span class="n">cVal</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here, our function name is <em>changeFromFToC</em>, the input is <em>farVal</em>, the temperature in Fahrenheit, the output is <em>cVal</em>, and the temperature in Celsius. We can print or store the output from the function.  Note that the function has to be defined before we use it - the cell with the function definition has to have run before we can call the function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Change 14 deg F to Celsius&quot;</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">changeFromFToC</span><span class="p">(</span> <span class="mi">14</span> <span class="p">)</span> <span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Change from 68 deg F to Celsius&quot;</span> <span class="p">)</span>
+<span class="n">niceTempC</span> <span class="o">=</span> <span class="n">changeFromFToC</span><span class="p">(</span> <span class="mi">68</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">niceTempC</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Change 14 deg F to Celsius
+-10.0
+Change from 68 deg F to Celsius
+20.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Your turn! What is the temperature today? Convert it to Celsius.</p>
+<p>For those who have the temperature in Celsius and want to convert it to Fahrenheit. Define a new function to do this.</p>
+<div class="section" id="multiple-inputs-and-outputs">
+<h3>Multiple inputs and outputs<a class="headerlink" href="#multiple-inputs-and-outputs" title="Permalink to this headline">¶</a></h3>
+<p>Here is an example of multiple outputs. We can actually work the output in a couple of different ways.</p>
+<div class="section" id="multiple-output-function">
+<h4>Multiple Output Function<a class="headerlink" href="#multiple-output-function" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">changeFromFToCAndK</span><span class="p">(</span> <span class="n">farVal</span> <span class="p">):</span>
+    <span class="c1"># Change the temperature from Fahrenheit to Celsius and Kelvin</span>
+    <span class="n">cVal</span> <span class="o">=</span> <span class="p">(</span><span class="n">farVal</span> <span class="o">-</span> <span class="mf">32.0</span><span class="p">)</span> <span class="o">*</span> <span class="mf">5.0</span> <span class="o">/</span> <span class="mf">9.0</span>
+    <span class="n">kVal</span><span class="o">=</span> <span class="n">cVal</span> <span class="o">+</span> <span class="mf">273.15</span>
+    <span class="k">return</span> <span class="n">cVal</span><span class="p">,</span> <span class="n">kVal</span>  
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="output-list">
+<h4>Output: List<a class="headerlink" href="#output-list" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">changeFromFToCAndK</span><span class="p">(</span> <span class="n">farVal</span> <span class="p">):</span>
+    <span class="c1"># Change the temperature from Fahrenheit to Celsius and Kelvin</span>
+    <span class="n">cVal</span> <span class="o">=</span> <span class="p">(</span><span class="n">farVal</span> <span class="o">-</span> <span class="mf">32.0</span><span class="p">)</span> <span class="o">*</span> <span class="mf">5.0</span> <span class="o">/</span> <span class="mf">9.0</span>
+    <span class="n">kVal</span><span class="o">=</span> <span class="n">cVal</span> <span class="o">+</span> <span class="mf">273.15</span>
+    <span class="k">return</span> <span class="n">cVal</span><span class="p">,</span> <span class="n">kVal</span>    
+    
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Change 14 deg F to Celsius and Kelvin&quot;</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">changeFromFToCAndK</span><span class="p">(</span> <span class="mi">14</span> <span class="p">)</span> <span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Change 32 deg F to Celsius and Kelvin&quot;</span> <span class="p">)</span>
+<span class="n">freezing</span> <span class="o">=</span> <span class="n">changeFromFToCAndK</span><span class="p">(</span> <span class="mi">32</span> <span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span> <span class="n">freezing</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">freezing</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Change 14 deg F to Celsius and Kelvin
+(-10.0, 263.15)
+Change 32 deg F to Celsius and Kelvin
+0.0
+273.15
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="output-multiple-variables">
+<h4>Output: Multiple Variables<a class="headerlink" href="#output-multiple-variables" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Change 212 deg F to Celsius and Kelvin&quot;</span> <span class="p">)</span>
+<span class="n">boilingC</span><span class="p">,</span> <span class="n">boilingK</span> <span class="o">=</span> <span class="n">changeFromFToCAndK</span><span class="p">(</span> <span class="mi">212</span> <span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span> <span class="n">boilingC</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">boilingK</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Change 212 deg F to Celsius and Kelvin
+100.0
+373.15
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="multiple-input-function">
+<h4>Multiple Input Function<a class="headerlink" href="#multiple-input-function" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">changeFromFToCOrK</span><span class="p">(</span> <span class="n">farVal</span><span class="p">,</span> <span class="n">tempType</span> <span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">tempType</span> <span class="o">==</span> <span class="s2">&quot;C&quot;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">farVal</span> <span class="o">-</span> <span class="mf">32.0</span><span class="p">)</span> <span class="o">*</span> <span class="mf">5.0</span> <span class="o">/</span> <span class="mf">9.0</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">tempType</span> <span class="o">==</span> <span class="s2">&quot;K&quot;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">((</span><span class="n">farVal</span> <span class="o">-</span> <span class="mf">32.0</span><span class="p">)</span> <span class="o">*</span> <span class="mf">5.0</span> <span class="o">/</span> <span class="mf">9.0</span><span class="p">)</span> <span class="o">+</span> <span class="mf">273.15</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;invalid temperature type&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span> <span class="n">changeFromFToCOrK</span><span class="p">(</span><span class="mi">70</span><span class="p">,</span><span class="s2">&quot;C&quot;</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>21.11111111111111
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span> <span class="n">changeFromFToCOrK</span><span class="p">(</span><span class="mi">70</span><span class="p">,</span><span class="s2">&quot;K&quot;</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>294.26111111111106
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span> <span class="n">changeFromFToCOrK</span><span class="p">(</span><span class="mi">70</span><span class="p">,</span><span class="s2">&quot;W&quot;</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>invalid temperature type
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="functions-calling-other-functions">
+<h3>Functions calling other functions<a class="headerlink" href="#functions-calling-other-functions" title="Permalink to this headline">¶</a></h3>
+<p>Functions can call other functions.  Here we add three using a function to add two and then adding one.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">addTwo</span><span class="p">(</span> <span class="n">inValAddTwo</span> <span class="p">):</span>
+    <span class="c1"># Add two to the input</span>
+    <span class="k">return</span> <span class="n">inValAddTwo</span> <span class="o">+</span> <span class="mi">2</span>
+
+<span class="k">def</span> <span class="nf">addThree</span><span class="p">(</span> <span class="n">inValAddThree</span> <span class="p">):</span>
+    <span class="c1"># Add three two the input</span>
+    <span class="k">return</span> <span class="n">addTwo</span><span class="p">(</span> <span class="n">inValAddThree</span> <span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="c1"># Add three to four</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Add three to four using addThree (which adds 1) but calls addTwo (which adds 2)&quot;</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">addThree</span><span class="p">(</span> <span class="mi">4</span> <span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Add three to four using addThree (which adds 1) but calls addTwo (which adds 2)
+7
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="recursive-functions">
+<h3>Recursive Functions<a class="headerlink" href="#recursive-functions" title="Permalink to this headline">¶</a></h3>
+<p>Functions can also call themselves - these are called recursive functions.  See how we calculate the factorial by subtracting one and calling the function again.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factorialRecursive</span><span class="p">(</span> <span class="n">facIn</span> <span class="p">):</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;In factorialRecursive() and the current number is:&quot;</span><span class="p">,</span> <span class="n">facIn</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">facIn</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">facIn</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">facIn</span> <span class="o">*</span> <span class="n">factorialRecursive</span><span class="p">(</span> <span class="n">facIn</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Use a recursive function to calculate the factorial of 5&quot;</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">factorialRecursive</span><span class="p">(</span> <span class="mi">5</span> <span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Use a recursive function to calculate the factorial of 5
+In factorialRecursive() and the current number is: 5
+In factorialRecursive() and the current number is: 4
+In factorialRecursive() and the current number is: 3
+In factorialRecursive() and the current number is: 2
+In factorialRecursive() and the current number is: 1
+120
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="function-gotcha">
+<h3>Function Gotcha! 😆<a class="headerlink" href="#function-gotcha" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The biggest gotcha on functions is with variable scope:</p>
+<ul class="simple">
+<li><p>Variables defined in a function are not accessible from the outside</p></li>
+<li><p>Functions have access to more than just the variables passed in</p></li>
+</ul>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">addAnAnimal</span><span class="p">(</span> <span class="n">animal</span> <span class="p">):</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span><span class="s2">&quot;in the function&quot;</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span><span class="s2">&quot;I have access to dog:&quot;</span><span class="p">,</span><span class="n">dog</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span><span class="s2">&quot;I have access to animal:&quot;</span><span class="p">,</span><span class="n">animal</span><span class="p">)</span>
+    <span class="n">newValue</span> <span class="o">=</span> <span class="n">animal</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span><span class="s2">&quot;I have access to newValue:&quot;</span><span class="p">,</span><span class="n">newValue</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">newValue</span>
+  
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;outside the function&quot;</span><span class="p">)</span>
+<span class="n">dog</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;dog:&quot;</span><span class="p">,</span> <span class="n">dog</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;function output:&quot;</span><span class="p">,</span><span class="n">addAnAnimal</span><span class="p">(</span> <span class="n">dog</span> <span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>outside the function
+dog: 10
+	 in the function
+	 I have access to dog: 10
+	 I have access to animal: 10
+	 I have access to newValue: 11
+function output: 11
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we would add:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="n">newValue</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>to the bottom, we would end up with this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">addAnAnimal</span><span class="p">(</span> <span class="n">animal</span> <span class="p">):</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span><span class="s2">&quot;in the function&quot;</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span><span class="s2">&quot;I have access to dog:&quot;</span><span class="p">,</span><span class="n">dog</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span><span class="s2">&quot;I have access to animal:&quot;</span><span class="p">,</span><span class="n">animal</span><span class="p">)</span>
+    <span class="n">newValue</span> <span class="o">=</span> <span class="n">animal</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span><span class="s2">&quot;I have access to newValue:&quot;</span><span class="p">,</span><span class="n">newValue</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">newValue</span>
+  
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;outside the function&quot;</span><span class="p">)</span>
+<span class="n">dog</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;dog:&quot;</span><span class="p">,</span> <span class="n">dog</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;function output:&quot;</span><span class="p">,</span><span class="n">addAnAnimal</span><span class="p">(</span> <span class="n">dog</span> <span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">newValue</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>outside the function</p>
+<p>dog: 10</p>
+<p>      in the function</p>
+<p>      I have access to dog: 10</p>
+<p>      I have access to animal: 10</p>
+<p>      I have access to newValue: 11</p>
+<p>function output: 11</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span>                                 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">32</span><span class="o">-</span><span class="mi">07</span><span class="n">cce689eb00</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+     <span class="mi">11</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;dog:&quot;</span><span class="p">,</span> <span class="n">dog</span><span class="p">)</span>
+     <span class="mi">12</span> <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;function output:&quot;</span><span class="p">,</span><span class="n">addAnAnimal</span><span class="p">(</span> <span class="n">dog</span> <span class="p">))</span>
+<span class="o">---&gt;</span> <span class="mi">13</span> <span class="nb">print</span> <span class="p">(</span><span class="n">newValue</span><span class="p">)</span>
+
+<span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;newValue&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="your-turn">
+<h2>Your Turn<a class="headerlink" href="#your-turn" title="Permalink to this headline">¶</a></h2>
+<p>Try to fill in code to fulfill the request!  Here is a variable used in the excercises.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aListOfNumbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Write a function that returns the length of aListOfNumbers as well as the maximum value. Hint: max() is a built-in function</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## try here!</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "dudaspm/JupyterLab-Python",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="Loading%20a%20Library%20-%20%F0%9F%90%A0.html" title="previous page">Loading a Library - 🐠</a>
+    <a class='right-next' id="next-link" href="Workshop%20Notebook-Abridged.html" title="next page">Workshop Notebook Abridged</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Patrick M. Dudas<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

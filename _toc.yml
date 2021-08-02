@@ -1,0 +1,13 @@
+# Table of content
+# Learn more at https://jupyterbook.org/customize/toc.html
+#
+
+format: jb-book
+root: intro
+parts:
+  - caption: LDA and Bias Data
+    chapters:
+      - file: Notebook Introduction - 🐸
+      - file: Latent Dirichlet Allocation (LDA) - 🐓
+      - file: Jigsaw
+      - file: Topic

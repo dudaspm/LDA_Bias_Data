@@ -1,0 +1,575 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>If-Else Conditions - 🐴 &#8212; JupyterLab + Python</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Loops - 🐨" href="Loops%20-%20%F0%9F%90%A8.html" />
+    <link rel="prev" title="Comparisons - 🐭" href="Comparisons%20-%20%F0%9F%90%AD.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">JupyterLab + Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   JupyterLab + Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Getting Starting
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Notebook%20Introduction%20-%20%F0%9F%90%B8.html">
+   Notebook Introduction - 🐸
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Jupyter Lab
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction%20to%20JupyterLab%20-%20%F0%9F%90%98.html">
+   Introduction to JupyterLab - 🐘
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction%20to%20Python%20-%20%F0%9F%90%A7.html">
+   Introduction to Python - 🐧
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Learning%20about%20Variables%20-%20%F0%9F%90%B3.html">
+   Learning about Variables - 🐳
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Comparisons%20-%20%F0%9F%90%AD.html">
+   Comparisons - 🐭
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   If-Else Conditions - 🐴
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Loops%20-%20%F0%9F%90%A8.html">
+   Loops - 🐨
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Loading%20a%20Library%20-%20%F0%9F%90%A0.html">
+   Loading a Library - 🐠
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Creating%20a%20Function%20-%20%F0%9F%90%B2.html">
+   Creating a Function - 🐲
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Workshops
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Workshop%20Notebook-Abridged.html">
+   Workshop Notebook Abridged
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Example Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Shopping%20List.html">
+   Let’s create a shopping list!
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Guessing%20Game.html">
+   A Python guessing game for jupyter
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Matplotlib
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Getting%20Started%20with%20Matplotlib.html">
+   Getting Started with Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Tables%20to%20Idioms.html">
+   Tables to Idioms
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/If-Else Conditions - 🐴.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        
+        
+        <a class="edit-button" href="https://github.com/dudaspm/JupyterLab-Python/edit/main/If-Else Conditions - 🐴.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/dudaspm/JupyterLab-Python/main?urlpath=lab/tree/If-Else Conditions - 🐴.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/dudaspm/JupyterLab-Python/blob/main/If-Else Conditions - 🐴.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#if">
+   if
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#where-the-if-starts-and-ends">
+     Where the if Starts and Ends
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#else">
+   else
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#elif-else-if">
+   elif (else if)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#switch-cases">
+     Switch Cases
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="if-else-conditions">
+<h1>If-Else Conditions - 🐴<a class="headerlink" href="#if-else-conditions" title="Permalink to this headline">¶</a></h1>
+<p>We can condition our data using if-else statements and switch cases.  If-else statements allow us to do different things if a certain criterion is met or not. We can count the odds and evens in our someNumbers list.</p>
+<div class="section" id="if">
+<h2>if<a class="headerlink" href="#if" title="Permalink to this headline">¶</a></h2>
+<p>The <em>if</em> statement starts with if and then lists a condition that may or may not is met. If the condition is true, we do what is listed. If it is not, we move on.</p>
+<p>Our example here is straightforward; if answer is greater than 30, print something.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">answer</span> <span class="o">=</span> <span class="mi">42</span>
+
+<span class="k">if</span> <span class="n">answer</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;This number is greater than 30&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This number is greater than 30
+</pre></div>
+</div>
+</div>
+</div>
+<p>OK, same concept.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">answer</span> <span class="o">=</span> <span class="mi">42</span>
+
+<span class="k">if</span> <span class="n">answer</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;This number is greater than 50&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note the structure of a Python if/else statement where some languages use { } to denote the start and end of the if/else statement. Python uses spaces.</p>
+<p>if (condition): &lt;-colon</p>
+<p>&lt;- space or tab</p>
+<p>Anything that is also spaced or tab is <em>part</em> of the if statement.</p>
+</div>
+<div class="section" id="where-the-if-starts-and-ends">
+<h3>Where the if Starts and Ends<a class="headerlink" href="#where-the-if-starts-and-ends" title="Permalink to this headline">¶</a></h3>
+<p>As mentioned in our note, the if/else statement uses spacing to indicate where it starts and ends. To highlight this, let’s look at an example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Into the If/Else!&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="mi">10</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;In the If/Else!&quot;</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Still in the If/Else!&quot;</span><span class="p">)</span>
+    
+    
+    
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;How do I get out of here!?&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Out of the If/Else!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Into the If/Else!
+Out of the If/Else!
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="else">
+<h2>else<a class="headerlink" href="#else" title="Permalink to this headline">¶</a></h2>
+<p>In these examples, only the numbers that are greater than 30 and 50 will get any response.  We can add a response for values that do not meet the conditional statement found within the if using an <em>else</em> statement.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">answer</span> <span class="o">=</span> <span class="mi">42</span>
+
+<span class="k">if</span> <span class="n">answer</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="n">answer</span><span class="p">,</span> <span class="s2">&quot;&gt; 30&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="n">answer</span><span class="p">,</span> <span class="s2">&quot;&lt; 30&quot;</span><span class="p">)</span>
+    
+<span class="k">if</span> <span class="n">answer</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="n">answer</span><span class="p">,</span> <span class="s2">&quot;&gt; 50&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="n">answer</span><span class="p">,</span> <span class="s2">&quot;&lt; 50&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>42 &gt; 30
+42 &lt; 50
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="elif-else-if">
+<h2>elif (else if)<a class="headerlink" href="#elif-else-if" title="Permalink to this headline">¶</a></h2>
+<p>If-else statements can also be stacked together to allow for additional sorting using multiple conditions.  The way this is done in python is by using</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">elif</span>
+</pre></div>
+</div>
+<p>This will chain conditions, but once one condition is true. It will stop ✋</p>
+<p>Let’s take a look at an example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">favoriteColor</span> <span class="o">=</span> <span class="s2">&quot;Yellow&quot;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">favoriteColor</span> <span class="o">==</span> <span class="s2">&quot;Red&quot;</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;My favorite color is red.&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="p">(</span><span class="n">favoriteColor</span> <span class="o">==</span> <span class="s2">&quot;Orange&quot;</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;My favorite color is orange.&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="p">(</span><span class="n">favoriteColor</span> <span class="o">==</span> <span class="s2">&quot;Yellow&quot;</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;My favorite color is yellow.&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="p">(</span><span class="n">favoriteColor</span> <span class="o">==</span> <span class="s2">&quot;Green&quot;</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;My favorite color is green.&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="p">(</span><span class="n">favoriteColor</span> <span class="o">==</span> <span class="s2">&quot;Blue&quot;</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;My favorite color is blue.&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="p">(</span><span class="n">favoriteColor</span> <span class="o">==</span> <span class="s2">&quot;Indigo&quot;</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;My favorite color is indigo.&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="p">(</span><span class="n">favoriteColor</span> <span class="o">==</span> <span class="s2">&quot;Violet&quot;</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;My favorite color is violet.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;I don&#39;t have a favorite color.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>My favorite color is yellow.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="switch-cases">
+<h3>Switch Cases<a class="headerlink" href="#switch-cases" title="Permalink to this headline">¶</a></h3>
+<p>Switch Cases are specialized if-else statements - the criteria must be met precisely. Let’s work on an example that changes between month numbers and month names. We first set up a dictionary that will be used for the evaluation.  We will use numbers as the keys and use the abbreviations as the values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">monthSwap</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;Jan&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">:</span><span class="s1">&#39;Feb&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">:</span><span class="s1">&#39;Mar&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">:</span><span class="s1">&#39;Apr&#39;</span><span class="p">,</span><span class="mi">5</span><span class="p">:</span><span class="s1">&#39;May&#39;</span><span class="p">,</span><span class="mi">6</span><span class="p">:</span><span class="s1">&#39;Jun&#39;</span><span class="p">,</span><span class="mi">7</span><span class="p">:</span><span class="s1">&#39;Jul&#39;</span><span class="p">,</span><span class="mi">8</span><span class="p">:</span><span class="s1">&#39;Aug&#39;</span><span class="p">,</span><span class="mi">9</span><span class="p">:</span><span class="s1">&#39;Sep&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">:</span><span class="s1">&#39;Oct&#39;</span><span class="p">,</span><span class="mi">11</span><span class="p">:</span><span class="s1">&#39;Nov&#39;</span><span class="p">,</span><span class="mi">12</span><span class="p">:</span><span class="s1">&#39;Dec&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;monthSwap = &quot;</span><span class="p">,</span> <span class="n">monthSwap</span><span class="p">)</span>
+
+<span class="c1"># Print out the 5th month</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">#-# Key = 5&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">monthSwap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="s2">&quot;oooooops!&quot;</span><span class="p">)</span> <span class="p">)</span>
+
+<span class="c1"># Print out the 19th month</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">#-# Key = 19&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">monthSwap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">19</span><span class="p">,</span><span class="s2">&quot;oooooops!&quot;</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>monthSwap =  {1: &#39;Jan&#39;, 2: &#39;Feb&#39;, 3: &#39;Mar&#39;, 4: &#39;Apr&#39;, 5: &#39;May&#39;, 6: &#39;Jun&#39;, 7: &#39;Jul&#39;, 8: &#39;Aug&#39;, 9: &#39;Sep&#39;, 10: &#39;Oct&#39;, 11: &#39;Nov&#39;, 12: &#39;Dec&#39;}
+
+#-# Key = 5
+May
+
+#-# Key = 19
+oooooops!
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "dudaspm/JupyterLab-Python",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="Comparisons%20-%20%F0%9F%90%AD.html" title="previous page">Comparisons - 🐭</a>
+    <a class='right-next' id="next-link" href="Loops%20-%20%F0%9F%90%A8.html" title="next page">Loops - 🐨</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Patrick M. Dudas<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

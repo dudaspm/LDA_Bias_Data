@@ -9,5 +9,7 @@ parts:
     chapters:
       - file: Notebook Introduction - 🐸
       - file: Latent Dirichlet Allocation (LDA) - 🐓
+      - file: Dirichlet Distribution
       - file: Jigsaw
       - file: Topic
+      

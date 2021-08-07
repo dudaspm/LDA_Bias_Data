@@ -140,7 +140,7 @@ model = LatentDirichletAllocation(n_components=number_of_topics, random_state=0)
 model.fit(tf)
 
 
-# In[14]:
+# In[12]:
 
 
 #Function to display the topics generated.
@@ -158,7 +158,7 @@ def display_topics(model, feature_names, no_top_words):
 # 
 # Try changing the no_top_words variable to show more or fewer words in each topic.
 
-# In[15]:
+# In[13]:
 
 
 no_top_words = 15

@@ -270,6 +270,7 @@ lda.fit(df)
 # In[10]:
 
 
+import numpy as np
 topic_words = {}
 n_top_words = 10
 for topic, comp in enumerate(lda.components_):
@@ -294,7 +295,7 @@ for topic, words in topic_words.items():
 
 # Looking at this, we do not get a clear picture of the topics. This time, let's remove those stopwords and see how important 🧼cleaning the data can be🧼! 
 
-# In[195]:
+# In[11]:
 
 
 from sklearn.feature_extraction.text import CountVectorizer
@@ -305,7 +306,7 @@ df = cv.fit_transform(documents)
 vocab = cv.get_feature_names()
 
 
-# In[196]:
+# In[12]:
 
 
 from sklearn.decomposition import LatentDirichletAllocation
@@ -313,7 +314,7 @@ lda = LatentDirichletAllocation(n_components = 4, doc_topic_prior=1)
 lda.fit(df)
 
 
-# In[197]:
+# In[13]:
 
 
 topic_words = {}

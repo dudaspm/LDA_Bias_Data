@@ -645,7 +645,8 @@ We will go through one example of how to get the text from the book using Python
 <p>To print out the top-5 words per topic, we used a solution from StackOverflow <span id="id12">[<a class="reference internal" href="intro.html#id9">blacksite, 2017</a>]</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">topic_words</span> <span class="o">=</span> <span class="p">{}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">topic_words</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="n">n_top_words</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="k">for</span> <span class="n">topic</span><span class="p">,</span> <span class="n">comp</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lda</span><span class="o">.</span><span class="n">components_</span><span class="p">):</span>
     <span class="c1"># for the n-dimensional array &quot;arr&quot;:</span>
@@ -669,16 +670,14 @@ We will go through one example of how to get the text from the book using Python
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="n">d3cfc9b43b7a</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="c1"># word_idx contains the indices in &quot;topic&quot; of the top num_top_words most relevant</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span>     <span class="c1"># to a given topic ... it is sorted ascending to begin with and then reversed (desc. now)</span>
-<span class="ne">---&gt; </span><span class="mi">13</span>     <span class="n">word_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">comp</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">][:</span><span class="n">n_top_words</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> 
-<span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="c1"># store the words most relevant to the topic</span>
-
-<span class="ne">NameError</span>: name &#39;np&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Topic: 0
+  refreshing, beholding, handsomest, base, hatched, coverlet, shoved, winking, singularly, necks
+Topic: 1
+  the, and, to, of, in, you, it, that, was, he
+Topic: 2
+  the, and, to, of, in, you, he, was, it, with
+Topic: 3
+  refreshing, beholding, handsomest, base, hatched, coverlet, shoved, winking, singularly, necks
 </pre></div>
 </div>
 </div>
@@ -737,13 +736,13 @@ We will go through one example of how to get the text from the book using Python
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Topic: 0
-  dorothy, man, shaggy, said, bright, button, little, asked, ozma, know
+  said, dorothy, scarecrow, wizard, woodman, little, horse, asked, tin, oz
 Topic: 1
-  dorothy, said, pg, king, ozma, billina, hen, little, scarecrow, girl
+  kinds, comforted, fortunate, notion, begun, stripes, sewed, bath, vest, drawers
 Topic: 2
-  said, scarecrow, dorothy, woodman, tip, tin, oz, saw, asked, city
+  kinds, comforted, fortunate, notion, begun, stripes, sewed, bath, vest, drawers
 Topic: 3
-  said, wizard, dorothy, pg, jim, little, zeb, horse, eureka, asked
+  dorothy, said, man, king, shaggy, pg, ozma, little, bright, button
 </pre></div>
 </div>
 </div>

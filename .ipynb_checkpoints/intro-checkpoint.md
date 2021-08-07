@@ -16,9 +16,13 @@ Welcome to our introduction and application of latent dirichlet allocation or LD
 
 > *Dirichlet Distribution* - We provide a look at the Dirichlet Distribution using The Chinese Restaurant Process to illistrate how it is derived and used in LDA. 
 
+> *Jigsaw - an Implementation of LDA* - We wanted to provide a use-case for LDA, so we coupled LDA and Unintended Bias (a dataset from Kaggle)
+
+> *Visualizing and Anayzing Jigsaw* - Finally, we take the results from LDA + Jigsaw and provide visualization and analysis of the findings. 
+
 ## References 
 
 I know it is tradition to have references at the end of books, but when you are standing on the shoulders of giants. You thank them first.
 
-```{bibliography}
+```{bibliography} 
 ```

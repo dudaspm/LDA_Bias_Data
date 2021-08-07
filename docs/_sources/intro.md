@@ -18,7 +18,7 @@ Welcome to our introduction and application of latent dirichlet allocation or LD
 
 > *Jigsaw - an Implementation of LDA* - We wanted to provide a use-case for LDA, so we coupled LDA and Unintended Bias (a dataset from Kaggle)
 
-> *Visualizing and Anayzing Jigsaw* - 
+> *Visualizing and Anayzing Jigsaw* - Finally, we take the results from LDA + Jigsaw and provide visualization and analysis of the findings. 
 
 ## References 
 

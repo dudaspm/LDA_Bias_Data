@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JupyterLab &#8212; JupyterLab + Python</title>
+    <title>Notebook Introduction &#8212; JupyterLab + Python</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,6 +51,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Latent Dirichlet Allocation (LDA)" href="Latent%20Dirichlet%20Allocation%20%28LDA%29.html" />
+    <link rel="prev" title="Introduction to the Notebook" href="intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -90,9 +92,9 @@
   LDA and Bias Data
  </span>
 </p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Notebook%20Introduction.html">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Notebook Introduction
   </a>
  </li>
@@ -157,9 +159,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/LICENSE.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/Notebook Introduction.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -174,7 +176,7 @@
     <div class="dropdown-buttons sourcebuttons">
         
         
-        <a class="edit-button" href="https://github.com/dudaspm/LDA_Bias_Data/edit/main/LICENSE.md"><button
+        <a class="edit-button" href="https://github.com/dudaspm/LDA_Bias_Data/edit/main/Notebook Introduction.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -189,6 +191,31 @@
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/dudaspm/LDA_Bias_Data/main?urlpath=lab/tree/Notebook Introduction.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/dudaspm/LDA_Bias_Data/blob/main/Notebook Introduction.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
@@ -199,14 +226,14 @@
             </div>
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   JupyterLab
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-use-this-notebook">
+   How to Use this Notebook
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#semver-file-license">
-   Semver File License
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#export-to-binder-or-google-colab">
+   Export to Binder or Google Colab
   </a>
  </li>
 </ul>
@@ -220,37 +247,45 @@
         
               <div>
                 
-  <div class="section" id="jupyterlab">
-<h1>JupyterLab<a class="headerlink" href="#jupyterlab" title="Permalink to this headline">¶</a></h1>
-<p>Copyright (c) 2015 Project Jupyter Contributors
-All rights reserved.</p>
-<p>Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:</p>
-<ol class="simple">
-<li><p>Redistributions of source code must retain the above copyright notice, this
-list of conditions and the following disclaimer.</p></li>
-<li><p>Redistributions in binary form must reproduce the above copyright notice,
-this list of conditions and the following disclaimer in the documentation
-and/or other materials provided with the distribution.</p></li>
-<li><p>Neither the name of the copyright holder nor the names of its
-contributors may be used to endorse or promote products derived from
-this software without specific prior written permission.</p></li>
-</ol>
-<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS”
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+  <div class="section" id="notebook-introduction">
+<h1>Notebook Introduction<a class="headerlink" href="#notebook-introduction" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="how-to-use-this-notebook">
+<h2>How to Use this Notebook<a class="headerlink" href="#how-to-use-this-notebook" title="Permalink to this headline">¶</a></h2>
+<p>This notebook allows you to both follow the text and interact with the code directly.</p>
+<p>At the top page, you will see:</p>
+<img src="https://raw.githubusercontent.com/dudaspm/JupyterLab-Python/main/images/topscreen1.png" alt="icons at the top right corner of the screen" style="width:200px;margin-left:auto;margin-right:auto;display:block;">
+<p>Select the icon on the left, the rocket ship:</p>
+<img src="https://raw.githubusercontent.com/dudaspm/JupyterLab-Python/main/images/topscreen2.png" alt="rocket ship icon for running the notebook" style="width:200px;margin-left:auto;margin-right:auto;display:block;">
+<p>Then go down to “Live Code”:</p>
+<img src="https://raw.githubusercontent.com/dudaspm/JupyterLab-Python/main/images/topscreen4.png" alt="selecting Live Code" style="width:240px;margin-left:auto;margin-right:auto;display:block;">
+<p>You should see at the top of the page a loading bar that cycles through mulitple states.
+<img src="https://raw.githubusercontent.com/dudaspm/JupyterLab-Python/main/images/topscreen6.png" alt="loading bar, first cycle" style="width:240px;margin-left:auto;margin-right:auto;display:block;"></p>
+<img src="https://raw.githubusercontent.com/dudaspm/JupyterLab-Python/main/images/topscreen7.png" alt="loading bar, second cycle" style="width:240px;margin-left:auto;margin-right:auto;display:block;">
+<img src="https://raw.githubusercontent.com/dudaspm/JupyterLab-Python/main/images/topscreen7b.png" alt="loading bar, thrid cycle" style="width:240px;margin-left:auto;margin-right:auto;display:block;">
+<img alt="loading bar, fourth cycle" src="https://raw.githubusercontent.com/dudaspm/JupyterLab-Python/main/images/topscreen8.png" style="width:240px;margin-left:auto;margin-right:auto;display:block;">
+<p>Then, finally:
+<img src="https://raw.githubusercontent.com/dudaspm/JupyterLab-Python/main/images/topscreen9.png" alt="loading bar, final cycle" style="width:240px;margin-left:auto;margin-right:auto;display:block;"></p>
+<p>Try this for yourself!</p>
+<p>Here is a basic line in Python, after setting to Live Code. You can edit the Python code <strong>directly in the notebook</strong> 😀 😀 😀</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span>
+</pre></div>
 </div>
-<div class="section" id="semver-file-license">
-<h1>Semver File License<a class="headerlink" href="#semver-file-license" title="Permalink to this headline">¶</a></h1>
-<p>The <a class="reference external" href="http://semver.py">semver.py</a> file is from <a class="reference external" href="https://github.com/podhmo/python-semver">https://github.com/podhmo/python-semver</a>
-which is licensed under the “MIT” license.  See the <a class="reference external" href="http://semver.py">semver.py</a> file for details.</p>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="export-to-binder-or-google-colab">
+<h2>Export to Binder or Google Colab<a class="headerlink" href="#export-to-binder-or-google-colab" title="Permalink to this headline">¶</a></h2>
+<p>As you can see you can also export these notebooks to Binder or Google Colab.</p>
+<img alt="Binder or Google Colab options" src="https://raw.githubusercontent.com/dudaspm/JupyterLab-Python/main/images/topscreen3.png" style="width:240px;margin-left:auto;margin-right:auto;display:block;">
+<p>This will take you to their respective websites but you can work with them there, if you would like!</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -278,6 +313,8 @@ which is licensed under the “MIT” license.  See the <a class="reference exte
         
         <div class='prev-next-bottom'>
             
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">Introduction to the Notebook</a>
+    <a class='right-next' id="next-link" href="Latent%20Dirichlet%20Allocation%20%28LDA%29.html" title="next page">Latent Dirichlet Allocation (LDA)</a>
 
         </div>
         

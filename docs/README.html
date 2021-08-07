@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JupyterLab + Python &#8212; JupyterLab + Python</title>
+    <title>LDA_Bias_Data &#8212; JupyterLab + Python</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -81,13 +81,13 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
-   JupyterLab + Python
+   Introduction to the Notebook
   </a>
  </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Getting Starting
+  LDA and Bias Data
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -96,109 +96,24 @@
    Notebook Introduction
   </a>
  </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Jupyter Lab
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="Introduction%20to%20JupyterLab.html">
-   Introduction to JupyterLab
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Python
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Introduction%20to%20Python.html">
-   Introduction to Python
+  <a class="reference internal" href="Latent%20Dirichlet%20Allocation%20%28LDA%29.html">
+   Latent Dirichlet Allocation (LDA)
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Learning%20about%20Variables.html">
-   Learning about Variables
+  <a class="reference internal" href="Dirichlet%20Distribution.html">
+   Dirichlet Distribution
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Comparisons.html">
-   Comparison Operators
+  <a class="reference internal" href="Jigsaw%20-%20an%20Implementation%20of%20LDA.html">
+   Jigsaw - an Implementation of LDA
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="If-Else%20Conditions.html">
-   If-Else Conditions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Loops.html">
-   Loops
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Loading%20a%20Library.html">
-   Loading a Library
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Creating%20a%20Function.html">
-   Creating a Function
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Workshops
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Workshop%20Notebook.html">
-   Workshop Notebook
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Workshop%20Notebook-Abridged.html">
-   Workshop Notebook Abridged
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Example Python
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Shopping%20List.html">
-   Let’s create a shopping list!
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Guessing%20Game.html">
-   A Python guessing game for jupyter
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Matplotlib
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Getting%20Started%20with%20Matplotlib.html">
-   Getting Started with Matplotlib
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Tables%20to%20Idioms.html">
-   Tables to Idioms
+  <a class="reference internal" href="Visualizing%20and%20Analyzing%20Jigsaw.html">
+   Visualizing and Analyzing Jigsaw
   </a>
  </li>
 </ul>
@@ -259,7 +174,7 @@
     <div class="dropdown-buttons sourcebuttons">
         
         
-        <a class="edit-button" href="https://github.com/dudaspm/JupyterLab-Python/edit/main/README.md"><button
+        <a class="edit-button" href="https://github.com/dudaspm/LDA_Bias_Data/edit/main/README.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -279,24 +194,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#contributors">
-   Contributors
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#credits">
-   Credits
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -305,39 +202,15 @@
         
               <div>
                 
-  <div class="section" id="jupyterlab-python">
-<h1>JupyterLab + Python<a class="headerlink" href="#jupyterlab-python" title="Permalink to this headline">¶</a></h1>
-<p>Link to notebook: <a class="reference external" href="https://dudaspm.github.io/JupyterLab-Python">https://dudaspm.github.io/JupyterLab-Python</a></p>
-<p>PDF version: <a class="reference external" href="https://github.com/dudaspm/JupyterLab-Python/tree/main/_build/pdf">https://github.com/dudaspm/JupyterLab-Python/tree/main/_build/pdf</a></p>
-<p>This is the source files for creating Python and Matplotlib code in Jupyter Lab and Google Colab. This book is an introduction to both platforms and will cover:</p>
-<ul class="simple">
-<li><p>Notebook Introduction (Completed)</p></li>
-<li><p>Introduction to Python (Completed)</p></li>
-<li><p>How to get started using JupyterLab (Completed)</p></li>
-<li><p>Learning about Variables (Completed)</p></li>
-<li><p>Comparisons (Completed)</p></li>
-<li><p>Loops (Completed)</p></li>
-<li><p>Shopping List (needs to be redone)</p></li>
-<li><p>Guessing Game (needs to be redone)</p></li>
-<li><p>Getting Started with Matplotlib (80% completed)</p></li>
-<li><p>Tables to Idioms (50% completed)</p></li>
-</ul>
-<div class="section" id="contributors">
-<h2>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h2>
-<p>If you are interested in contributing, let me know!</p>
-<p>Also, a huge thank you to Adam Lavely (<a class="reference external" href="https://github.com/adamlavely">https://github.com/adamlavely</a>) for developing some of the intial notebooks!</p>
-</div>
-<div class="section" id="credits">
-<h2>Credits<a class="headerlink" href="#credits" title="Permalink to this headline">¶</a></h2>
-<p>This project is created using the open source <a class="reference external" href="https://jupyterbook.org/">Jupyter Book project</a> and the <a class="reference external" href="https://github.com/executablebooks/cookiecutter-jupyter-book">executablebooks/cookiecutter-jupyter-book template</a>.</p>
-</div>
+  <div class="section" id="lda-bias-data">
+<h1>LDA_Bias_Data<a class="headerlink" href="#lda-bias-data" title="Permalink to this headline">¶</a></h1>
 </div>
 
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
         binderOptions: {
-            repo: "dudaspm/JupyterLab-Python",
+            repo: "dudaspm/LDA_Bias_Data",
             ref: "main",
         },
         codeMirrorConfig: {
@@ -367,7 +240,7 @@
     <div class="container">
       <p>
         
-          By Patrick M. Dudas<br/>
+          By anonymous<br/>
         
             &copy; Copyright 2021.<br/>
       </p>

@@ -1,0 +1,1122 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Section 2: Implementation of LDA &#8212; JupyterLab + Python</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Section 3: Application of LDA - A Biased Percpective" href="Topic.html" />
+    <link rel="prev" title="Dirichlet Distribution" href="Dirichlet%20Distribution.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">JupyterLab + Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Latent Dirichlet Allocation
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  LDA and Bias Data
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Notebook%20Introduction.html">
+   Notebook Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Latent%20Dirichlet%20Allocation%20%28LDA%29.html">
+   Latent Dirichlet Allocation (LDA)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Dirichlet%20Distribution.html">
+   Dirichlet Distribution
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Section 2: Implementation of LDA
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Topic.html">
+   Section 3: Application of LDA - A Biased Percpective
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Jigsaw.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        
+        
+        <a class="edit-button" href="https://github.com/dudaspm/JupyterLab-Python/edit/main/Jigsaw.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/dudaspm/JupyterLab-Python/main?urlpath=lab/tree/Jigsaw.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/dudaspm/JupyterLab-Python/blob/main/Jigsaw.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Section 2: Implementation of LDA
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#we-will-be-reading-the-data-into-a-dataframe-for-easy-analysis">
+     We will be reading the data into a dataframe for easy analysis.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#warning-some-comments-may-have-explicit-language">
+     Warning: Some comments may have explicit language
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lets-try-removing-unnecessary-words-and-cleaning-the-statements-for-analysis-of-topics">
+     Lets try removing unnecessary words and cleaning the statements for analysis of topics.
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#statements-to-vector">
+     Statements to Vector
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#for-the-current-analysis-lets-define-the-machine-to-extract-10-unique-topics-from-the-dataset-you-can-play-around-with-the-number-of-topics">
+     For the current analysis, lets define the machine to extract 10 unique topics from the dataset (You can play around with the number of topics.).
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#here-the-machine-performs-the-topic-modelling-analysis-this-might-take-a-little-while">
+     Here, the machine performs the topic modelling analysis. (This might take a little while)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-below-topics-show-the-most-significant-word-in-each-topic-with-further-analysis-we-can-understand-the-behaviour-of-the-dataset-and-type-of-conversations-that-occur-in-them">
+     The below topics show the most significant word in each topic. With further analysis, we can understand the behaviour of the dataset and type of conversations that occur in them.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#now-to-the-analysis">
+   Now to the analysis!
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#click-insert-page-name">
+     Click &lt;insert Page name&gt;
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="section-2-implementation-of-lda">
+<h1>Section 2: Implementation of LDA<a class="headerlink" href="#section-2-implementation-of-lda" title="Permalink to this headline">¶</a></h1>
+<p>To further understand the importance of topic modeling, we will be looking into a public dataset, i.e. the Jigsaw Unintended Bias dataset.</p>
+<p>This dataset consists of ~2m public comments from the Civil Comment platform so that researchers could understand and improve civility in online conversations. These comments are then annotated by human raters for various toxic conversational attributes. Additional labels related to sociodemographic identifiers were mentioned to help a machine understand bias better, based on context analysis. But we will see the utility of this dataset and the presence of potential bias in these conversations related to people with physical, mental and learning disabilites.</p>
+<p>We have filtered all the comments that have been provided a value for the parameters of ‘Intellectual or Learning Disability’. ‘Psychiatric or Mental Illness’. ‘Physical Disability’ &amp; ‘Other Disability’. We now have 18665 statements in this corpus.
+The dataset therefore contains statements pertained to these parameters. We can assume that these statements might most likely take about people with disability, but with the help of topic modeling, we can confirm this.</p>
+<p>We will import the necessary libraries here</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+
+<span class="kn">import</span> <span class="nn">sklearn</span>
+
+
+
+<span class="kn">import</span> <span class="nn">nltk</span>
+<span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="kn">import</span> <span class="n">RegexpTokenizer</span>
+<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
+<span class="kn">from</span> <span class="nn">nltk.stem</span> <span class="kn">import</span> <span class="n">WordNetLemmatizer</span>
+<span class="kn">import</span> <span class="nn">string</span>
+<span class="kn">import</span> <span class="nn">nltk</span>
+<span class="n">lemmatizer</span> <span class="o">=</span> <span class="n">WordNetLemmatizer</span><span class="p">()</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">LatentDirichletAllocation</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">3</span><span class="n">edba3256980</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> 
+<span class="g g-Whitespace">      </span><span class="mi">8</span> 
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;seaborn&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="we-will-be-reading-the-data-into-a-dataframe-for-easy-analysis">
+<h2>We will be reading the data into a dataframe for easy analysis.<a class="headerlink" href="#we-will-be-reading-the-data-into-a-dataframe-for-easy-analysis" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;PWD.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is how the data looks like:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>id</th>
+      <th>comment_text</th>
+      <th>split</th>
+      <th>created_date</th>
+      <th>publication_id</th>
+      <th>parent_id</th>
+      <th>article_id</th>
+      <th>rating</th>
+      <th>funny</th>
+      <th>...</th>
+      <th>white</th>
+      <th>asian</th>
+      <th>latino</th>
+      <th>other_race_or_ethnicity</th>
+      <th>physical_disability</th>
+      <th>intellectual_or_learning_disability</th>
+      <th>psychiatric_or_mental_illness</th>
+      <th>other_disability</th>
+      <th>identity_annotator_count</th>
+      <th>toxicity_annotator_count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>7705</td>
+      <td>6216834</td>
+      <td>No sympathy for these two knuckleheads.</td>
+      <td>train</td>
+      <td>2017-10-25 00:52:00.913992+00</td>
+      <td>21</td>
+      <td>NaN</td>
+      <td>392998</td>
+      <td>approved</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.25</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>4</td>
+      <td>58</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>8073</td>
+      <td>5625069</td>
+      <td>Wow!\nYour progressive psychosis has become ex...</td>
+      <td>train</td>
+      <td>2017-07-20 03:30:15.579733+00</td>
+      <td>54</td>
+      <td>5624305.0</td>
+      <td>357183</td>
+      <td>rejected</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>4</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>8115</td>
+      <td>5690713</td>
+      <td>Or.... maybe there IS chaos because the "presi...</td>
+      <td>train</td>
+      <td>2017-07-31 17:02:58.167475+00</td>
+      <td>102</td>
+      <td>5690153.0</td>
+      <td>361265</td>
+      <td>approved</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>4</td>
+      <td>62</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>8125</td>
+      <td>470493</td>
+      <td>I'll take someone who's physically ill over on...</td>
+      <td>train</td>
+      <td>2016-09-12 02:41:50.084427+00</td>
+      <td>21</td>
+      <td>NaN</td>
+      <td>145747</td>
+      <td>approved</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.75</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>4</td>
+      <td>68</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>8263</td>
+      <td>941207</td>
+      <td>Mental Illness at work again, again, again, ag...</td>
+      <td>train</td>
+      <td>2017-02-02 22:38:09.291374+00</td>
+      <td>13</td>
+      <td>NaN</td>
+      <td>165832</td>
+      <td>rejected</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>4</td>
+      <td>70</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 47 columns</p>
+</div></div></div>
+</div>
+<p>Below are just a few of the comments in this group. You can view more comments by changing the parameter in the ‘head’ function.</p>
+</div>
+<div class="section" id="warning-some-comments-may-have-explicit-language">
+<h2>Warning: Some comments may have explicit language<a class="headerlink" href="#warning-some-comments-may-have-explicit-language" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">comment_text</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0                                                                                          No sympathy for these two knuckleheads.
+1                                        Wow!\nYour progressive psychosis has become extreme!\nPlease seek immediate medical help.
+2    Or.... maybe there IS chaos because the &quot;president&quot; is a mentally ill, in-over-his-head idiot who couldn&#39;t lead cats to tuna.
+Name: comment_text, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="lets-try-removing-unnecessary-words-and-cleaning-the-statements-for-analysis-of-topics">
+<h2>Lets try removing unnecessary words and cleaning the statements for analysis of topics.<a class="headerlink" href="#lets-try-removing-unnecessary-words-and-cleaning-the-statements-for-analysis-of-topics" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;stopwords&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package stopwords to
+[nltk_data]     C:\Users\prana\AppData\Roaming\nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_stopwords</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">corpus</span><span class="o">.</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">)</span>
+<span class="n">word_rooter</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">stem</span><span class="o">.</span><span class="n">snowball</span><span class="o">.</span><span class="n">PorterStemmer</span><span class="p">(</span><span class="n">ignore_stopwords</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span>
+<span class="n">my_punctuation</span> <span class="o">=</span> <span class="s1">&#39;!&quot;$%&amp;</span><span class="se">\&#39;</span><span class="s1">()*+,-./:;&lt;=&gt;?[</span><span class="se">\\</span><span class="s1">]^_`{|}~•@&#39;</span>
+
+<span class="c1"># cleaning master function</span>
+<span class="k">def</span> <span class="nf">clean_tweet</span><span class="p">(</span><span class="n">tweet</span><span class="p">,</span> <span class="n">bigrams</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">tweet</span> <span class="o">=</span> <span class="n">tweet</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="c1"># lower case</span>
+    <span class="n">tweet</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;[&#39;</span><span class="o">+</span><span class="n">my_punctuation</span> <span class="o">+</span> <span class="s1">&#39;]+&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">tweet</span><span class="p">)</span> <span class="c1"># strip punctuation</span>
+    <span class="n">tweet</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">tweet</span><span class="p">)</span> <span class="c1">#remove double spacing</span>
+    <span class="n">tweet</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;([0-9]+)&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">tweet</span><span class="p">)</span> <span class="c1"># remove numbers</span>
+    <span class="n">tweet_token_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">tweet</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+                            <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">my_stopwords</span><span class="p">]</span> <span class="c1"># remove stopwords</span>
+
+    <span class="n">tweet_token_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">word_rooter</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="k">if</span> <span class="s1">&#39;#&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">word</span> <span class="k">else</span> <span class="n">word</span>
+                        <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">tweet_token_list</span><span class="p">]</span> <span class="c1"># apply word rooter</span>
+    <span class="k">if</span> <span class="n">bigrams</span><span class="p">:</span>
+        <span class="n">tweet_token_list</span> <span class="o">=</span> <span class="n">tweet_token_list</span><span class="o">+</span><span class="p">[</span><span class="n">tweet_token_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="n">tweet_token_list</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+                                            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tweet_token_list</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
+    <span class="n">tweet</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tweet_token_list</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tweet</span>
+
+
+<span class="n">t</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;clean_tweet&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">comment_text</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">clean_tweet</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="statements-to-vector">
+<h2>Statements to Vector<a class="headerlink" href="#statements-to-vector" title="Permalink to this headline">¶</a></h2>
+<p>We will be converting the statements to a vector format for the machine to understand.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
+
+<span class="c1"># the vectorizer object will be used to transform text to vector form</span>
+<span class="n">vectorizer</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">max_df</span><span class="o">=</span><span class="mf">0.99</span><span class="p">,</span> <span class="n">min_df</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">token_pattern</span><span class="o">=</span><span class="s1">&#39;\w+|\$[\d\.]+|\S+&#39;</span><span class="p">)</span>
+
+<span class="c1"># apply transformation</span>
+<span class="n">tf</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;clean_tweet&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+
+<span class="c1"># tf_feature_names tells us what word each column in the matric represents</span>
+<span class="n">tf_feature_names</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="for-the-current-analysis-lets-define-the-machine-to-extract-10-unique-topics-from-the-dataset-you-can-play-around-with-the-number-of-topics">
+<h2>For the current analysis, lets define the machine to extract 10 unique topics from the dataset (You can play around with the number of topics.).<a class="headerlink" href="#for-the-current-analysis-lets-define-the-machine-to-extract-10-unique-topics-from-the-dataset-you-can-play-around-with-the-number-of-topics" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number_of_topics</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">LatentDirichletAllocation</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">number_of_topics</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="here-the-machine-performs-the-topic-modelling-analysis-this-might-take-a-little-while">
+<h2>Here, the machine performs the topic modelling analysis. (This might take a little while)<a class="headerlink" href="#here-the-machine-performs-the-topic-modelling-analysis-this-might-take-a-little-while" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">tf</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LatentDirichletAllocation(random_state=0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Function to display the topics generated.</span>
+<span class="k">def</span> <span class="nf">display_topics</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">feature_names</span><span class="p">,</span> <span class="n">no_top_words</span><span class="p">):</span>
+    <span class="n">topic_dict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">topic_idx</span><span class="p">,</span> <span class="n">topic</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">components_</span><span class="p">):</span>
+        <span class="n">topic_dict</span><span class="p">[</span><span class="s2">&quot;Topic </span><span class="si">%d</span><span class="s2"> words&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">topic_idx</span><span class="p">)]</span><span class="o">=</span> <span class="p">[</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">feature_names</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">topic</span><span class="o">.</span><span class="n">argsort</span><span class="p">()[:</span><span class="o">-</span><span class="n">no_top_words</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+        <span class="n">topic_dict</span><span class="p">[</span><span class="s2">&quot;Topic </span><span class="si">%d</span><span class="s2"> weights&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">topic_idx</span><span class="p">)]</span><span class="o">=</span> <span class="p">[</span><span class="s1">&#39;</span><span class="si">{:.1f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">topic</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">topic</span><span class="o">.</span><span class="n">argsort</span><span class="p">()[:</span><span class="o">-</span><span class="n">no_top_words</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">topic_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="the-below-topics-show-the-most-significant-word-in-each-topic-with-further-analysis-we-can-understand-the-behaviour-of-the-dataset-and-type-of-conversations-that-occur-in-them">
+<h2>The below topics show the most significant word in each topic. With further analysis, we can understand the behaviour of the dataset and type of conversations that occur in them.<a class="headerlink" href="#the-below-topics-show-the-most-significant-word-in-each-topic-with-further-analysis-we-can-understand-the-behaviour-of-the-dataset-and-type-of-conversations-that-occur-in-them" title="Permalink to this headline">¶</a></h2>
+<p>Try changing the no_top_words variable to show more or less words in each topic.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">no_top_words</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">display_topics</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">tf_feature_names</span><span class="p">,</span> <span class="n">no_top_words</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Topic 0 words</th>
+      <th>Topic 0 weights</th>
+      <th>Topic 1 words</th>
+      <th>Topic 1 weights</th>
+      <th>Topic 2 words</th>
+      <th>Topic 2 weights</th>
+      <th>Topic 3 words</th>
+      <th>Topic 3 weights</th>
+      <th>Topic 4 words</th>
+      <th>Topic 4 weights</th>
+      <th>Topic 5 words</th>
+      <th>Topic 5 weights</th>
+      <th>Topic 6 words</th>
+      <th>Topic 6 weights</th>
+      <th>Topic 7 words</th>
+      <th>Topic 7 weights</th>
+      <th>Topic 8 words</th>
+      <th>Topic 8 weights</th>
+      <th>Topic 9 words</th>
+      <th>Topic 9 weights</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>trump</td>
+      <td>3452.3</td>
+      <td>mental</td>
+      <td>3351.9</td>
+      <td>canada</td>
+      <td>591.5</td>
+      <td>mental</td>
+      <td>1186.5</td>
+      <td>gun</td>
+      <td>1385.3</td>
+      <td>school</td>
+      <td>840.5</td>
+      <td>mental</td>
+      <td>1058.1</td>
+      <td>white</td>
+      <td>1220.1</td>
+      <td>mental</td>
+      <td>1836.1</td>
+      <td>god</td>
+      <td>954.9</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>presid</td>
+      <td>1031.5</td>
+      <td>ill</td>
+      <td>1993.1</td>
+      <td>muslim</td>
+      <td>582.0</td>
+      <td>peopl</td>
+      <td>708.3</td>
+      <td>mental</td>
+      <td>1156.3</td>
+      <td>kid</td>
+      <td>723.0</td>
+      <td>comment</td>
+      <td>848.3</td>
+      <td>peopl</td>
+      <td>1076.2</td>
+      <td>peopl</td>
+      <td>1793.0</td>
+      <td>one</td>
+      <td>934.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>vote</td>
+      <td>813.8</td>
+      <td>health</td>
+      <td>1213.7</td>
+      <td>countri</td>
+      <td>539.3</td>
+      <td>drug</td>
+      <td>555.8</td>
+      <td>peopl</td>
+      <td>981.1</td>
+      <td>year</td>
+      <td>590.5</td>
+      <td>like</td>
+      <td>678.6</td>
+      <td>black</td>
+      <td>651.0</td>
+      <td>health</td>
+      <td>1464.6</td>
+      <td>women</td>
+      <td>905.2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>like</td>
+      <td>780.9</td>
+      <td>medic</td>
+      <td>706.8</td>
+      <td>us</td>
+      <td>519.8</td>
+      <td>ill</td>
+      <td>538.9</td>
+      <td>law</td>
+      <td>844.9</td>
+      <td>go</td>
+      <td>514.7</td>
+      <td>would</td>
+      <td>668.2</td>
+      <td>disord</td>
+      <td>537.1</td>
+      <td>homeless</td>
+      <td>1367.5</td>
+      <td>life</td>
+      <td>830.1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>elect</td>
+      <td>579.5</td>
+      <td>http</td>
+      <td>630.5</td>
+      <td>world</td>
+      <td>490.3</td>
+      <td>health</td>
+      <td>497.7</td>
+      <td>kill</td>
+      <td>699.6</td>
+      <td>time</td>
+      <td>507.9</td>
+      <td>think</td>
+      <td>650.4</td>
+      <td>person</td>
+      <td>529.5</td>
+      <td>care</td>
+      <td>1296.8</td>
+      <td>peopl</td>
+      <td>798.2</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>republican</td>
+      <td>550.2</td>
+      <td>help</td>
+      <td>527.0</td>
+      <td>canadian</td>
+      <td>462.9</td>
+      <td>problem</td>
+      <td>491.9</td>
+      <td>polic</td>
+      <td>683.4</td>
+      <td>one</td>
+      <td>500.8</td>
+      <td>person</td>
+      <td>629.7</td>
+      <td>”</td>
+      <td>486.9</td>
+      <td>need</td>
+      <td>1169.6</td>
+      <td>would</td>
+      <td>740.9</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>obama</td>
+      <td>542.2</td>
+      <td>need</td>
+      <td>504.5</td>
+      <td>islam</td>
+      <td>448.3</td>
+      <td>use</td>
+      <td>476.3</td>
+      <td>ill</td>
+      <td>674.7</td>
+      <td>get</td>
+      <td>458.6</td>
+      <td>say</td>
+      <td>608.7</td>
+      <td>right</td>
+      <td>484.1</td>
+      <td>work</td>
+      <td>956.9</td>
+      <td>church</td>
+      <td>686.1</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>peopl</td>
+      <td>540.2</td>
+      <td>www</td>
+      <td>467.5</td>
+      <td>right</td>
+      <td>409.8</td>
+      <td>issu</td>
+      <td>456.4</td>
+      <td>one</td>
+      <td>526.8</td>
+      <td>student</td>
+      <td>385.0</td>
+      <td>know</td>
+      <td>607.6</td>
+      <td>gender</td>
+      <td>454.1</td>
+      <td>ill</td>
+      <td>903.6</td>
+      <td>like</td>
+      <td>656.3</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>man</td>
+      <td>499.8</td>
+      <td>treatment</td>
+      <td>453.5</td>
+      <td>like</td>
+      <td>400.1</td>
+      <td>caus</td>
+      <td>444.5</td>
+      <td>would</td>
+      <td>521.2</td>
+      <td>work</td>
+      <td>373.3</td>
+      <td>issu</td>
+      <td>572.7</td>
+      <td>women</td>
+      <td>446.7</td>
+      <td>get</td>
+      <td>825.9</td>
+      <td>men</td>
+      <td>634.9</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>democrat</td>
+      <td>488.0</td>
+      <td>com</td>
+      <td>415.4</td>
+      <td>govern</td>
+      <td>385.2</td>
+      <td>suicid</td>
+      <td>405.2</td>
+      <td>get</td>
+      <td>519.6</td>
+      <td>need</td>
+      <td>370.2</td>
+      <td>ill</td>
+      <td>569.4</td>
+      <td>’</td>
+      <td>443.7</td>
+      <td>help</td>
+      <td>795.8</td>
+      <td>children</td>
+      <td>619.3</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>get</td>
+      <td>475.6</td>
+      <td>get</td>
+      <td>362.2</td>
+      <td>peopl</td>
+      <td>378.4</td>
+      <td>depress</td>
+      <td>381.5</td>
+      <td>person</td>
+      <td>451.4</td>
+      <td>would</td>
+      <td>369.8</td>
+      <td>make</td>
+      <td>567.4</td>
+      <td>mental</td>
+      <td>441.8</td>
+      <td>money</td>
+      <td>740.8</td>
+      <td>know</td>
+      <td>613.1</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>white</td>
+      <td>453.6</td>
+      <td>doctor</td>
+      <td>342.3</td>
+      <td>christian</td>
+      <td>373.7</td>
+      <td>gun</td>
+      <td>369.9</td>
+      <td>right</td>
+      <td>422.9</td>
+      <td>like</td>
+      <td>340.8</td>
+      <td>one</td>
+      <td>553.2</td>
+      <td>group</td>
+      <td>415.7</td>
+      <td>pay</td>
+      <td>702.1</td>
+      <td>live</td>
+      <td>592.2</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>think</td>
+      <td>435.9</td>
+      <td>patient</td>
+      <td>320.2</td>
+      <td>liber</td>
+      <td>358.4</td>
+      <td>violenc</td>
+      <td>320.6</td>
+      <td>go</td>
+      <td>364.9</td>
+      <td>cathol</td>
+      <td>337.7</td>
+      <td>peopl</td>
+      <td>513.0</td>
+      <td>hate</td>
+      <td>392.3</td>
+      <td>problem</td>
+      <td>662.4</td>
+      <td>child</td>
+      <td>582.4</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>support</td>
+      <td>432.4</td>
+      <td>year</td>
+      <td>302.0</td>
+      <td>one</td>
+      <td>333.1</td>
+      <td>alcohol</td>
+      <td>310.5</td>
+      <td>could</td>
+      <td>349.7</td>
+      <td>educ</td>
+      <td>329.4</td>
+      <td>use</td>
+      <td>494.8</td>
+      <td>male</td>
+      <td>363.5</td>
+      <td>mani</td>
+      <td>660.3</td>
+      <td>woman</td>
+      <td>581.8</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>donald</td>
+      <td>410.1</td>
+      <td>disord</td>
+      <td>297.7</td>
+      <td>blind</td>
+      <td>329.4</td>
+      <td>addict</td>
+      <td>278.2</td>
+      <td>guy</td>
+      <td>347.4</td>
+      <td>church</td>
+      <td>309.2</td>
+      <td>someon</td>
+      <td>482.5</td>
+      <td>one</td>
+      <td>360.8</td>
+      <td>would</td>
+      <td>660.1</td>
+      <td>love</td>
+      <td>553.7</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We can go through the topics achieved to understand the most common conversations that occur in this dataset. We will be looking into this content in detail in the following section.</p>
+</div>
+</div>
+<div class="section" id="now-to-the-analysis">
+<h1>Now to the analysis!<a class="headerlink" href="#now-to-the-analysis" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="click-insert-page-name">
+<h2>Click &lt;insert Page name&gt;<a class="headerlink" href="#click-insert-page-name" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "dudaspm/JupyterLab-Python",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="Dirichlet%20Distribution.html" title="previous page">Dirichlet Distribution</a>
+    <a class='right-next' id="next-link" href="Topic.html" title="next page">Section 3: Application of LDA - A Biased Percpective</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By anonymous<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

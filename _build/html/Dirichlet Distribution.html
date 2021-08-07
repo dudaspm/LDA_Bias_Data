@@ -53,8 +53,8 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Section 2: Implementation of LDA" href="Jigsaw.html" />
-    <link rel="prev" title="Topic Modeling - 🐓" href="Latent%20Dirichlet%20Allocation%20%28LDA%29%20-%20%F0%9F%90%93.html" />
+    <link rel="next" title="Jigsaw - an Implementation of LDA" href="Jigsaw%20-%20an%20Implementation%20of%20LDA.html" />
+    <link rel="prev" title="Latent Dirichlet Allocation (LDA)" href="Latent%20Dirichlet%20Allocation%20%28LDA%29.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -85,7 +85,7 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
-   Latent Dirichlet Allocation
+   Introduction to the Notebook
   </a>
  </li>
 </ul>
@@ -96,13 +96,13 @@
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="Notebook%20Introduction%20-%20%F0%9F%90%B8.html">
-   Notebook Introduction - 🐸
+  <a class="reference internal" href="Notebook%20Introduction.html">
+   Notebook Introduction
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Latent%20Dirichlet%20Allocation%20%28LDA%29%20-%20%F0%9F%90%93.html">
-   Topic Modeling - 🐓
+  <a class="reference internal" href="Latent%20Dirichlet%20Allocation%20%28LDA%29.html">
+   Latent Dirichlet Allocation (LDA)
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -111,13 +111,13 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Jigsaw.html">
-   Section 2: Implementation of LDA
+  <a class="reference internal" href="Jigsaw%20-%20an%20Implementation%20of%20LDA.html">
+   Jigsaw - an Implementation of LDA
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Topic.html">
-   Section 3: Application of LDA - A Biased Percpective
+  <a class="reference internal" href="Visualizing%20and%20Analyzing%20Jigsaw.html">
+   Visualizing and Analyzing Jigsaw
   </a>
  </li>
 </ul>
@@ -178,7 +178,7 @@
     <div class="dropdown-buttons sourcebuttons">
         
         
-        <a class="edit-button" href="https://github.com/dudaspm/JupyterLab-Python/edit/main/Dirichlet Distribution.ipynb"><button
+        <a class="edit-button" href="https://github.com/dudaspm/LDA_Bias_Data/edit/main/Dirichlet Distribution.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -198,7 +198,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/dudaspm/JupyterLab-Python/main?urlpath=lab/tree/Dirichlet Distribution.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/dudaspm/LDA_Bias_Data/main?urlpath=lab/tree/Dirichlet Distribution.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="_static/images/logo_binder.svg"
@@ -206,7 +206,7 @@
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/dudaspm/JupyterLab-Python/blob/main/Dirichlet Distribution.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/dudaspm/LDA_Bias_Data/blob/main/Dirichlet Distribution.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -6009,7 +6009,7 @@
 <div class="section" id="actual-data">
 <h2>Actual Data<a class="headerlink" href="#actual-data" title="Permalink to this headline">¶</a></h2>
 <p>To see some actual data, we will be using scipy for five topics and five documents.</p>
-<p>Note to print these 5 x 5 tables, we used code from SlackOverflow <span id="id1">[<a class="reference internal" href="intro.html#id5">Werner, 2016</a>]</span>.</p>
+<p>Note to print these 5 x 5 tables, we used code from SlackOverflow <span id="id1">[<a class="reference internal" href="intro.html#id6">Werner, 2016</a>]</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">dirichlet</span>
@@ -6054,7 +6054,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><script src='https://d3js.org/d3.v6.min.js'></script></div><div class="output text_html"><table><tr><td></td><td><em>topic 0</em></td><td><em>topic 1</em></td><td><em>topic 2</em></td><td><em>topic 3</em></td><td><em>topic 4</em></td></tr><tr><td><em>document 0</em></td><td>0.0</td><td>0.0</td><td>1.0</td><td>0.0</td><td>0.0</td></tr><tr><td><em>document 1</em></td><td>0.0</td><td>0.0</td><td>1.0</td><td>0.0</td><td>0.0</td></tr><tr><td><em>document 2</em></td><td>0.0</td><td>1.0</td><td>0.0</td><td>0.0</td><td>0.0</td></tr><tr><td><em>document 3</em></td><td>0.0</td><td>0.0</td><td>0.0</td><td>1.0</td><td>0.0</td></tr><tr><td><em>document 4</em></td><td>0.0</td><td>0.0</td><td>0.0</td><td>1.0</td><td>0.0</td></tr></table></div></div>
+<div class="output text_html"><script src='https://d3js.org/d3.v6.min.js'></script></div><div class="output text_html"><table><tr><td></td><td><em>topic 0</em></td><td><em>topic 1</em></td><td><em>topic 2</em></td><td><em>topic 3</em></td><td><em>topic 4</em></td></tr><tr><td><em>document 0</em></td><td>0.0</td><td>0.0</td><td>0.0</td><td>1.0</td><td>0.0</td></tr><tr><td><em>document 1</em></td><td>1.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td></tr><tr><td><em>document 2</em></td><td>0.0</td><td>0.0</td><td>0.0</td><td>1.0</td><td>0.0</td></tr><tr><td><em>document 3</em></td><td>1.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td></tr><tr><td><em>document 4</em></td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>1.0</td></tr></table></div></div>
 </div>
 </div>
 <div class="section" id="alpha-1">
@@ -6090,7 +6090,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><script src='https://d3js.org/d3.v6.min.js'></script></div><div class="output text_html"><table><tr><td></td><td><em>topic 0</em></td><td><em>topic 1</em></td><td><em>topic 2</em></td><td><em>topic 3</em></td><td><em>topic 4</em></td></tr><tr><td><em>document 0</em></td><td>0.6</td><td>0.0</td><td>0.0</td><td>0.4</td><td>0.0</td></tr><tr><td><em>document 1</em></td><td>0.0</td><td>0.1</td><td>0.0</td><td>0.0</td><td>0.9</td></tr><tr><td><em>document 2</em></td><td>0.6</td><td>0.0</td><td>0.0</td><td>0.1</td><td>0.3</td></tr><tr><td><em>document 3</em></td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>1.0</td></tr><tr><td><em>document 4</em></td><td>0.0</td><td>0.1</td><td>0.0</td><td>0.8</td><td>0.1</td></tr></table></div></div>
+<div class="output text_html"><script src='https://d3js.org/d3.v6.min.js'></script></div><div class="output text_html"><table><tr><td></td><td><em>topic 0</em></td><td><em>topic 1</em></td><td><em>topic 2</em></td><td><em>topic 3</em></td><td><em>topic 4</em></td></tr><tr><td><em>document 0</em></td><td>0.0</td><td>0.0</td><td>0.5</td><td>0.4</td><td>0.0</td></tr><tr><td><em>document 1</em></td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>1.0</td></tr><tr><td><em>document 2</em></td><td>0.2</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.8</td></tr><tr><td><em>document 3</em></td><td>0.0</td><td>0.9</td><td>0.0</td><td>0.0</td><td>0.0</td></tr><tr><td><em>document 4</em></td><td>1.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td></tr></table></div></div>
 </div>
 </div>
 <div class="section" id="id2">
@@ -6126,7 +6126,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><script src='https://d3js.org/d3.v6.min.js'></script></div><div class="output text_html"><table><tr><td></td><td><em>topic 0</em></td><td><em>topic 1</em></td><td><em>topic 2</em></td><td><em>topic 3</em></td><td><em>topic 4</em></td></tr><tr><td><em>document 0</em></td><td>0.4</td><td>0.4</td><td>0.0</td><td>0.2</td><td>0.0</td></tr><tr><td><em>document 1</em></td><td>0.0</td><td>0.1</td><td>0.6</td><td>0.1</td><td>0.2</td></tr><tr><td><em>document 2</em></td><td>0.1</td><td>0.5</td><td>0.1</td><td>0.1</td><td>0.2</td></tr><tr><td><em>document 3</em></td><td>0.0</td><td>0.2</td><td>0.3</td><td>0.3</td><td>0.2</td></tr><tr><td><em>document 4</em></td><td>0.0</td><td>0.0</td><td>0.2</td><td>0.7</td><td>0.0</td></tr></table></div></div>
+<div class="output text_html"><script src='https://d3js.org/d3.v6.min.js'></script></div><div class="output text_html"><table><tr><td></td><td><em>topic 0</em></td><td><em>topic 1</em></td><td><em>topic 2</em></td><td><em>topic 3</em></td><td><em>topic 4</em></td></tr><tr><td><em>document 0</em></td><td>0.2</td><td>0.1</td><td>0.3</td><td>0.0</td><td>0.4</td></tr><tr><td><em>document 1</em></td><td>0.3</td><td>0.1</td><td>0.4</td><td>0.1</td><td>0.0</td></tr><tr><td><em>document 2</em></td><td>0.0</td><td>0.0</td><td>0.2</td><td>0.1</td><td>0.7</td></tr><tr><td><em>document 3</em></td><td>0.3</td><td>0.2</td><td>0.1</td><td>0.1</td><td>0.4</td></tr><tr><td><em>document 4</em></td><td>0.1</td><td>0.3</td><td>0.3</td><td>0.1</td><td>0.2</td></tr></table></div></div>
 </div>
 </div>
 <div class="section" id="alpha-10">
@@ -6162,7 +6162,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><script src='https://d3js.org/d3.v6.min.js'></script></div><div class="output text_html"><table><tr><td></td><td><em>topic 0</em></td><td><em>topic 1</em></td><td><em>topic 2</em></td><td><em>topic 3</em></td><td><em>topic 4</em></td></tr><tr><td><em>document 0</em></td><td>0.2</td><td>0.2</td><td>0.2</td><td>0.2</td><td>0.2</td></tr><tr><td><em>document 1</em></td><td>0.3</td><td>0.2</td><td>0.2</td><td>0.1</td><td>0.2</td></tr><tr><td><em>document 2</em></td><td>0.1</td><td>0.3</td><td>0.2</td><td>0.3</td><td>0.1</td></tr><tr><td><em>document 3</em></td><td>0.2</td><td>0.3</td><td>0.2</td><td>0.2</td><td>0.2</td></tr><tr><td><em>document 4</em></td><td>0.1</td><td>0.2</td><td>0.2</td><td>0.2</td><td>0.2</td></tr></table></div></div>
+<div class="output text_html"><script src='https://d3js.org/d3.v6.min.js'></script></div><div class="output text_html"><table><tr><td></td><td><em>topic 0</em></td><td><em>topic 1</em></td><td><em>topic 2</em></td><td><em>topic 3</em></td><td><em>topic 4</em></td></tr><tr><td><em>document 0</em></td><td>0.2</td><td>0.2</td><td>0.1</td><td>0.3</td><td>0.2</td></tr><tr><td><em>document 1</em></td><td>0.2</td><td>0.2</td><td>0.1</td><td>0.2</td><td>0.2</td></tr><tr><td><em>document 2</em></td><td>0.2</td><td>0.1</td><td>0.3</td><td>0.2</td><td>0.2</td></tr><tr><td><em>document 3</em></td><td>0.2</td><td>0.1</td><td>0.2</td><td>0.2</td><td>0.2</td></tr><tr><td><em>document 4</em></td><td>0.3</td><td>0.2</td><td>0.2</td><td>0.2</td><td>0.1</td></tr></table></div></div>
 </div>
 </div>
 <div class="section" id="alpha-100">
@@ -6491,7 +6491,7 @@
     {
         requestKernel: true,
         binderOptions: {
-            repo: "dudaspm/JupyterLab-Python",
+            repo: "dudaspm/LDA_Bias_Data",
             ref: "main",
         },
         codeMirrorConfig: {
@@ -6512,8 +6512,8 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="Latent%20Dirichlet%20Allocation%20%28LDA%29%20-%20%F0%9F%90%93.html" title="previous page">Topic Modeling - 🐓</a>
-    <a class='right-next' id="next-link" href="Jigsaw.html" title="next page">Section 2: Implementation of LDA</a>
+    <a class='left-prev' id="prev-link" href="Latent%20Dirichlet%20Allocation%20%28LDA%29.html" title="previous page">Latent Dirichlet Allocation (LDA)</a>
+    <a class='right-next' id="next-link" href="Jigsaw%20-%20an%20Implementation%20of%20LDA.html" title="next page">Jigsaw - an Implementation of LDA</a>
 
         </div>
         

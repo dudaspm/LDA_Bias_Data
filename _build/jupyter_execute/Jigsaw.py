@@ -102,7 +102,9 @@ t = []
 df['clean_tweet'] = df.comment_text.apply(clean_tweet)
 
 
-# ##### We will be converting the statements to a vector format for the machine to understand. 
+# ##### Statements to Vector
+# 
+# We will be converting the statements to a vector format for the machine to understand. 
 
 # In[14]:
 

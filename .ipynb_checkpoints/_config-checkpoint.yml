@@ -10,7 +10,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   
 # the name of your GitHub Repo. 
 # If there is no subpath for your site, use an empty string ""  
-baseurl: "/JupyterLab-Python" #@@@ CHANGE THIS -5 @@@#
+baseurl: "/LDA_Bias_Data" #@@@ CHANGE THIS -5 @@@#
 
 
 # the base hostname & protocol for your site. 
@@ -31,7 +31,7 @@ sphinx:
     bibtex_reference_style: author_year
 # Main page settings
 # Optional: you can replace with <https://github.com/my-first-jupyter-book/my-book-site> your repo URL
-footer_text               : View source repository at <a href="https://github.com/dudaspm/JupyterLab-Python"></a> #@@@ CHANGE THIS - 7 @@@#
+footer_text               : View source repository at <a href="https://github.com/dudaspm/LDA_Bias_Data"></a> #@@@ CHANGE THIS - 7 @@@#
 
 # Sidebar settings
 show_sidebar              : true  # Show the sidebar. Only set to false if your only wish to host a single page.
@@ -70,10 +70,10 @@ use_binder_button                : false  # If 'true', add a binder button for i
 binderhub_url                    : https://mybinder.org  # The URL for your BinderHub. If no URL, use ""
 
 
-binder_repo_base                 : https://github.com/dudaspm/JupyterLab-Python  #@@@ CHANGE THIS @@@  -8 # # The site on which the textbook repository is hosted
+binder_repo_base                 : https://github.com/dudaspm/LDA_Bias_Data  #@@@ CHANGE THIS @@@  -8 # # The site on which the textbook repository is hosted
 binder_repo_org                  : dudaspm  #@@@ CHANGE THIS @@@ - 9# # Your GitHub username
 
-binder_repo_name                 : JupyterLab-Python  # The project repo name
+binder_repo_name                 : LDA_Bias_Data  # The project repo name
 binder_repo_branch               : main  # The branch on which your textbook is hosted.
 binderhub_interact_text          : "Interact via Binder"  # The text that interact buttons will contain.
 
@@ -87,7 +87,7 @@ launch_buttons:
     codemirror_theme                 : "abcdef"  # Theme for codemirror cells, for options see https://codemirror.net/doc/manual.html#config
 
 repository:
-  url: https://github.com/dudaspm/JupyterLab-Python
+  url: https://github.com/dudaspm/LDA_Bias_Data
   branch: main
 html:
   use_edit_page_button: true

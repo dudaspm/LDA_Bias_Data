@@ -221,6 +221,52 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#latent-dirichlet-allocation">
+   Latent Dirichlet Allocation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pronunciation">
+     Pronunciation
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#latent">
+       Latent
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dirichlet">
+       Dirichlet
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#allocation">
+       Allocation
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-latent-dirichlet-allocation-or-lda">
+   What is Latent Dirichlet Allocation or LDA?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -231,14 +277,205 @@
                 
   <div class="section" id="topic-modeling">
 <h1>Topic Modeling - 🐓<a class="headerlink" href="#topic-modeling" title="Permalink to this headline">¶</a></h1>
-<p><img alt="The Little Red Hen Book" src="https://www.gutenberg.org/files/18735/18735-h/images/cover_054_1.jpg" /></p>
+<p><img alt="Alice's Adventures in Wonderland" src="https://www.gutenberg.org/files/11/11-h/images/cover.jpg" /></p>
 <blockquote>
-<div><p>The Little Red Hen <span id="id1">[<a class="reference internal" href="intro.html#id6">Williams, 1918</a>]</span> via <a class="reference external" href="https://www.gutenberg.org/ebooks/18735">https://www.gutenberg.org/ebooks/18735</a></p>
+<div><p>Alice’s Adventures in Wonderland <span id="id1">[<a class="reference internal" href="intro.html#id6">Carroll, 1865</a>]</span> via <a class="reference external" href="https://www.gutenberg.org/files/11/11-h/11-h.htm">https://www.gutenberg.org/files/11/11-h/11-h.htm</a></p>
 </div></blockquote>
 <p>To start our discussion, we should introduce what Topic Modeling is and how it can be applied.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>“Topic modeling is a princpled approach for discovering topics from a large corpus of text documents <span id="id2">[<a class="reference internal" href="intro.html#id8">Liu, 2020</a>]</span> (pg.159).”</p>
+</div>
+<p>Already, we have few things to unpack. What are topics? How are the defined? Do we define or does the computer? What is a large corpus? How many documents do we need?</p>
+<p>Let’s start with a <em>large corpus of text documents</em>. Typically, we would have two documents 📄, five documents 📄, ten million documents 📄, can be thought of as our corpus. Yes, even 1 document 📄 can be used for topic modeling. So, defining, <em>large corpus of text documents</em>, can be subjective.</p>
+<p>As specified by Liu <span id="id3">[<a class="reference internal" href="intro.html#id8">Liu, 2020</a>]</span> we can start this conversation using one of the two basic types of topic modeling. This being <em>probablistic Latent Dirichlet Allocation</em> or <em>Latent Dirichlet Allocation</em>. For our conversation, we will be using <em>Latent Dirichlet Allocation</em>.</p>
+<div class="section" id="latent-dirichlet-allocation">
+<h2>Latent Dirichlet Allocation<a class="headerlink" href="#latent-dirichlet-allocation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pronunciation">
+<h3>Pronunciation<a class="headerlink" href="#pronunciation" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="latent">
+<h4>Latent<a class="headerlink" href="#latent" title="Permalink to this headline">¶</a></h4>
+<audio controls>
+  <source src="https://github.com/dudaspm/LDA_Bias_Data/blob/main/audio/Latent.mp3?raw=true"
+          type="audio/mp3">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="section" id="dirichlet">
+<h4>Dirichlet<a class="headerlink" href="#dirichlet" title="Permalink to this headline">¶</a></h4>
+<audio controls>
+  <source src="https://github.com/dudaspm/LDA_Bias_Data/blob/main/audio/Dirichlet.mp3?raw=true"
+          type="audio/mp3">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="section" id="allocation">
+<h4>Allocation<a class="headerlink" href="#allocation" title="Permalink to this headline">¶</a></h4>
+<audio controls>
+  <source src="https://github.com/dudaspm/LDA_Bias_Data/blob/main/audio/Allocation.mp3?raw=true"
+          type="audio/mp3">
+Your browser does not support the audio element.
+</audio>
+<p>Our pronoucation stems from a talk by David Blei who is a professor of Statistics and Computer Science at Columbia University during David’s talk “Probabilistic Topic Models and User Behavior <span id="id4">[<a class="reference internal" href="intro.html#id9">Blei, 2017</a>]</span>.” The citation provides a link to original YouTube video (which is a <em>great</em> resource), but specifically, helpful for the pronouciation.</p>
+</div>
+</div>
+</div>
+<div class="section" id="what-is-latent-dirichlet-allocation-or-lda">
+<h2>What is Latent Dirichlet Allocation or LDA?<a class="headerlink" href="#what-is-latent-dirichlet-allocation-or-lda" title="Permalink to this headline">¶</a></h2>
+<p>LDA is an unsupervised learning model.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Topic Modeling with Documents  📄</p>
+<ul class="simple">
+<li><p>supervised - Our documents 📄 are pre-labeled with the given topic(s). We can then train 🏋️ and test 🧪 (and also, you can include validate). <strong>Usually</strong> this is split:</p>
+<ul>
+<li><p>training 🏋️ 80%</p></li>
+<li><p>testing 🧪 20%.</p></li>
+</ul>
+</li>
+<li><p>unsupervised - Data is not labeled. So, we have no idea what the topics are beforehand. That being said, we can (and will) define the <em>number of topics</em>.</p></li>
+</ul>
+</div>
+<p>So, coming back to our original questions:</p>
+<ul class="simple">
+<li><p>What are topics?</p>
+<ul>
+<li><p>The topics will X number of sets of terms (we define this X) which will (could) have a common theme.</p></li>
+</ul>
+</li>
+<li><p>How are they defined?</p>
+<ul>
+<li><p>This is what we will get to in this notebook.</p></li>
+</ul>
+</li>
+<li><p>Do we define or does the computer?</p>
+<ul>
+<li><p>LDA is unsupervised, so we define the number of topics. The computer provides the topics themselves.</p></li>
+</ul>
+</li>
+<li><p>What is a large corpus? and How many documents do we need?</p>
+<ul>
+<li><p>A bit subjective here. There is a <em>great</em> discussion about this by Tang et al.  <span id="id5">[<a class="reference internal" href="intro.html#id10">Tang <em>et al.</em>, 2014</a>]</span> regarding this. If you have chance, read all the points, but to sum it up</p>
+<ul>
+<li><p>The number of documents does matter, but at some point, increasing the number does not warrent better results. Even sampling a 1000 papers from 1000000 papers could result in the same, if not, better results than using 1000000 documents.</p></li>
+<li><p>The size of the documents also plays a role, so documents should not be short. Larger documents can be sampled and again, receive the same desired output.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2><a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://www.gutenberg.org/files/11/11-h/11-h.htm&quot;</span>
+<span class="n">html</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
+
+<span class="c1"># kill all script and style elements</span>
+<span class="k">for</span> <span class="n">script</span> <span class="ow">in</span> <span class="n">soup</span><span class="p">([</span><span class="s2">&quot;script&quot;</span><span class="p">,</span> <span class="s2">&quot;style&quot;</span><span class="p">]):</span>
+    <span class="n">script</span><span class="o">.</span><span class="n">extract</span><span class="p">()</span>    <span class="c1"># rip it out</span>
+
+<span class="c1"># get text</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+<span class="nb">print</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;str&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">random</span> 
+
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
+<span class="n">textArray</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">textArray</span><span class="p">))</span>
+<span class="n">documents</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">([</span><span class="s2">&quot;sadf&quot;</span><span class="p">,</span><span class="s2">&quot;asdf&quot;</span><span class="p">,</span><span class="s2">&quot;Aewrwe&quot;</span><span class="p">],</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">2</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">27</span><span class="p">):</span>
+    <span class="n">documents</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">textArray</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">1000</span><span class="p">:(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">1000</span><span class="p">]))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">documents</span><span class="p">[</span><span class="mi">10</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="mi">100</span><span class="p">])</span>
+<span class="n">cv</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">()</span>
+<span class="c1"># tokenize and build vocab</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="n">cea6c4b74d00</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">random</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">textArray</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">textArray</span><span class="p">))</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;sklearn&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">LatentDirichletAllocation</span>
+<span class="n">lda</span> <span class="o">=</span> <span class="n">LatentDirichletAllocation</span><span class="p">(</span><span class="n">n_components</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">42</span><span class="p">)</span>
+<span class="n">lda</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LatentDirichletAllocation(n_components=5, random_state=42)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">topic</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lda</span><span class="o">.</span><span class="n">components_</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Top 15 words for Topic #</span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">([</span><span class="n">cv</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">()[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">topic</span><span class="o">.</span><span class="n">argsort</span><span class="p">()[</span><span class="o">-</span><span class="mi">15</span><span class="p">:]])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Top 15 words for Topic #0
+[&#39;at&#39;, &#39;her&#39;, &#39;as&#39;, &#39;that&#39;, &#39;was&#39;, &#39;in&#39;, &#39;you&#39;, &#39;alice&#39;, &#39;said&#39;, &#39;of&#39;, &#39;she&#39;, &#39;it&#39;, &#39;to&#39;, &#39;and&#39;, &#39;the&#39;]
+
+
+Top 15 words for Topic #1
+[&#39;by&#39;, &#39;works&#39;, &#39;any&#39;, &#39;with&#39;, &#39;work&#39;, &#39;this&#39;, &#39;in&#39;, &#39;and&#39;, &#39;you&#39;, &#39;to&#39;, &#39;project&#39;, &#39;or&#39;, &#39;gutenberg&#39;, &#39;of&#39;, &#39;the&#39;]
+
+
+Top 15 words for Topic #2
+[&#39;jogged&#39;, &#39;leading&#39;, &#39;blame&#39;, &#39;chanced&#39;, &#39;doze&#39;, &#39;unwillingly&#39;, &#39;interrupt&#39;, &#39;brush&#39;, &#39;offend&#39;, &#39;roots&#39;, &#39;civil&#39;, &#39;personal&#39;, &#39;remarks&#39;, &#39;splashing&#39;, &#39;humbly&#39;]
+
+
+Top 15 words for Topic #3
+[&#39;jogged&#39;, &#39;leading&#39;, &#39;blame&#39;, &#39;chanced&#39;, &#39;doze&#39;, &#39;unwillingly&#39;, &#39;interrupt&#39;, &#39;brush&#39;, &#39;offend&#39;, &#39;roots&#39;, &#39;civil&#39;, &#39;personal&#39;, &#39;remarks&#39;, &#39;splashing&#39;, &#39;humbly&#39;]
+
+
+Top 15 words for Topic #4
+[&#39;be&#39;, &#39;that&#39;, &#39;her&#39;, &#39;as&#39;, &#39;in&#39;, &#39;was&#39;, &#39;alice&#39;, &#39;of&#39;, &#39;said&#39;, &#39;you&#39;, &#39;she&#39;, &#39;it&#39;, &#39;to&#39;, &#39;and&#39;, &#39;the&#39;]
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 

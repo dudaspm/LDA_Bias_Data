@@ -7,9 +7,9 @@ root: intro
 parts:
   - caption: LDA and Bias Data
     chapters:
-      - file: Notebook Introduction - 🐸
-      - file: Latent Dirichlet Allocation (LDA) - 🐓
+      - file: Notebook Introduction
+      - file: Latent Dirichlet Allocation (LDA)
       - file: Dirichlet Distribution
-      - file: Jigsaw
-      - file: Topic
+      - file: Jigsaw - an Implementation of LDA
+      - file: Visualizing and Analyzing Jigsaw
       

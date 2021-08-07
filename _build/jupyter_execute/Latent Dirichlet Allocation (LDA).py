@@ -270,7 +270,7 @@ lda.fit(df)
 # In[10]:
 
 
-import numpy as np
+import numpy as np 
 topic_words = {}
 n_top_words = 10
 for topic, comp in enumerate(lda.components_):

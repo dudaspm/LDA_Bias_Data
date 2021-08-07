@@ -645,7 +645,7 @@ We will go through one example of how to get the text from the book using Python
 <p>To print out the top-5 words per topic, we used a solution from StackOverflow <span id="id12">[<a class="reference internal" href="intro.html#id9">blacksite, 2017</a>]</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
 <span class="n">topic_words</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="n">n_top_words</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="k">for</span> <span class="n">topic</span><span class="p">,</span> <span class="n">comp</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lda</span><span class="o">.</span><span class="n">components_</span><span class="p">):</span>
@@ -671,13 +671,13 @@ We will go through one example of how to get the text from the book using Python
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Topic: 0
-  refreshing, beholding, handsomest, base, hatched, coverlet, shoved, winking, singularly, necks
+  the, and, to, of, in, you, it, was, that, he
 Topic: 1
-  the, and, to, of, in, you, it, that, was, he
+  id, prop, dentist, dent, printing, privilege, privileges, prize, professors, defense
 Topic: 2
-  the, and, to, of, in, you, he, was, it, with
+  id, prop, dentist, dent, printing, privilege, privileges, prize, professors, defense
 Topic: 3
-  refreshing, beholding, handsomest, base, hatched, coverlet, shoved, winking, singularly, necks
+  id, prop, dentist, dent, printing, privilege, privileges, prize, professors, defense
 </pre></div>
 </div>
 </div>
@@ -736,13 +736,13 @@ Topic: 3
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Topic: 0
-  said, dorothy, scarecrow, wizard, woodman, little, horse, asked, tin, oz
+  dorothy, said, pg, little, wizard, king, ozma, girl, asked, gutenberg
 Topic: 1
-  kinds, comforted, fortunate, notion, begun, stripes, sewed, bath, vest, drawers
+  said, dorothy, scarecrow, man, woodman, tin, little, asked, oz, tip
 Topic: 2
-  kinds, comforted, fortunate, notion, begun, stripes, sewed, bath, vest, drawers
+  cab, gargoyles, jim, squirrels, bruised, mask, locks, solemnly, mantels, whined
 Topic: 3
-  dorothy, said, man, king, shaggy, pg, ozma, little, bright, button
+  cab, gargoyles, jim, squirrels, bruised, mask, locks, solemnly, mantels, whined
 </pre></div>
 </div>
 </div>

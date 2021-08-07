@@ -8,10 +8,10 @@
 # 
 # This dataset consists of ~2m public comments from the Civil Comment {cite}`bogdanoff_2017` platform so that researchers could understand and improve civility in online conversations. Civil Comments was a social media platform that uses peer-review submission where commenters rated the civility of other comments before their own was, in turn, rated by others.
 # 
-# These comments are then annotated by human raters for various toxic conversational attributes. Additional labels related to sociodemographic identifiers were mentioned to help a machine understand bias better, based on context analysis. But we will see the utility of this dataset and the presence of potential bias in these conversations related to people with physical, mental and learning disabilites. 
+# These comments are then annotated by human raters for various toxic conversational attributes. Additional labels related to sociodemographic identifiers were mentioned to help a machine understand bias better based on context analysis. But we will see the utility of this dataset and the presence of potential bias in these conversations related to people with physical, mental, and learning disabilities. 
 
-# We have filtered all the comments that have been provided a value for the parameters of 'Intellectual or Learning Disability'. 'Psychiatric or Mental Illness'. 'Physical Disability' & 'Other Disability'. We now have 18665 statements in this corpus. 
-# The dataset therefore contains statements pertained to these parameters. We can assume that these statements might most likely take about people with disability, but with the help of topic modeling, we can confirm this. 
+# We have filtered all the comments that have been provided a value for the parameters of 'Intellectual or Learning Disability. 'Psychiatric or Mental Illness'. 'Physical Disability & 'Other Disability'. We now have 18665 statements in this corpus. 
+# The dataset, therefore, contains statements pertaining to these parameters. We can assume that these statements might most likely be about people with disabilities, but with the help of topic modeling, we can confirm this. 
 # 
 # 
 
@@ -42,7 +42,7 @@ import re
 from sklearn.decomposition import LatentDirichletAllocation
 
 
-# We will be reading the data into a dataframe for easy analysis.
+# We will be reading the data into a data frame for easy analysis.
 
 # In[4]:
 
@@ -68,7 +68,7 @@ pd.set_option('display.max_colwidth', None)
 df.comment_text.head(3)
 
 
-# ##### Lets try removing unnecessary words and cleaning the statements for analysis of topics.
+# Let's try removing unnecessary words and cleaning the statements for analysis of topics.
 
 # In[7]:
 
@@ -122,7 +122,7 @@ tf = vectorizer.fit_transform(df['clean_tweet']).toarray()
 tf_feature_names = vectorizer.get_feature_names()
 
 
-# For the current analysis, lets define the machine to extract 10 unique topics from the dataset (You can play around with the number of topics.).
+# For the current analysis, let's define the machine to extract ten unique topics from the dataset (You can play around with the number of topics.).
 
 # In[10]:
 
@@ -132,7 +132,7 @@ number_of_topics = 10
 model = LatentDirichletAllocation(n_components=number_of_topics, random_state=0)
 
 
-# Here, the machine performs the topic modelling analysis. (This might take a little while)
+# Here, the machine performs the topic modeling analysis. (This might take a little while).
 
 # In[11]:
 
@@ -154,9 +154,9 @@ def display_topics(model, feature_names, no_top_words):
     return pd.DataFrame(topic_dict)
 
 
-# Each column in the table show the most significant words in each topic. With further analysis, we can understand the behaviour of the dataset and type of conversations that occur in them. 
+# Each column in the table shows the most important words in each topic. With further analysis, we can understand the behavior of the dataset and the type of conversations that occur in them. 
 # 
-# Try changing the no_top_words variable to show more or less words in each topic.
+# Try changing the no_top_words variable to show more or fewer words in each topic.
 
 # In[15]:
 

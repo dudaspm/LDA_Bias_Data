@@ -227,11 +227,6 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#lets-try-removing-unnecessary-words-and-cleaning-the-statements-for-analysis-of-topics">
-   Lets try removing unnecessary words and cleaning the statements for analysis of topics.
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#now-to-the-analysis">
    Now to the analysis!
   </a>
@@ -249,11 +244,11 @@
                 
   <div class="section" id="jigsaw-an-implementation-of-lda">
 <h1>Jigsaw - an Implementation of LDA<a class="headerlink" href="#jigsaw-an-implementation-of-lda" title="Permalink to this headline">¶</a></h1>
-<p>To further understand the importance of topic modeling, we will be looking into a public dataset, i.e. the Jigsaw Unintended Bias dataset <span id="id1">[]</span>.</p>
-<p>This dataset consists of ~2m public comments from the Civil Comment <span id="id2">[]</span> platform so that researchers could understand and improve civility in online conversations. Civil Comments was a social media platform that uses peer-review submission where commenters rated the civility of other comments before their own was, in turn, rated by others.</p>
-<p>These comments are then annotated by human raters for various toxic conversational attributes. Additional labels related to sociodemographic identifiers were mentioned to help a machine understand bias better, based on context analysis. But we will see the utility of this dataset and the presence of potential bias in these conversations related to people with physical, mental and learning disabilites.</p>
-<p>We have filtered all the comments that have been provided a value for the parameters of ‘Intellectual or Learning Disability’. ‘Psychiatric or Mental Illness’. ‘Physical Disability’ &amp; ‘Other Disability’. We now have 18665 statements in this corpus.
-The dataset therefore contains statements pertained to these parameters. We can assume that these statements might most likely take about people with disability, but with the help of topic modeling, we can confirm this.</p>
+<p>To further understand the importance of topic modeling, we will be looking into a public dataset, i.e. the Jigsaw Unintended Bias dataset <span id="id1">[<a class="reference internal" href="intro.html#id12">Jigsaw and Google, 2019</a>]</span>.</p>
+<p>This dataset consists of ~2m public comments from the Civil Comment <span id="id2">[<a class="reference internal" href="intro.html#id10">Bogdanoff, 2017</a>]</span> platform so that researchers could understand and improve civility in online conversations. Civil Comments was a social media platform that uses peer-review submission where commenters rated the civility of other comments before their own was, in turn, rated by others.</p>
+<p>These comments are then annotated by human raters for various toxic conversational attributes. Additional labels related to sociodemographic identifiers were mentioned to help a machine understand bias better based on context analysis. But we will see the utility of this dataset and the presence of potential bias in these conversations related to people with physical, mental, and learning disabilities.</p>
+<p>We have filtered all the comments that have been provided a value for the parameters of ‘Intellectual or Learning Disability. ‘Psychiatric or Mental Illness’. ‘Physical Disability &amp; ‘Other Disability’. We now have 18665 statements in this corpus.
+The dataset, therefore, contains statements pertaining to these parameters. We can assume that these statements might most likely be about people with disabilities, but with the help of topic modeling, we can confirm this.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Some comments in the dataset may have explicit language.</p>
@@ -285,7 +280,7 @@ The dataset therefore contains statements pertained to these parameters. We can 
 </div>
 </div>
 </div>
-<p>We will be reading the data into a dataframe for easy analysis.</p>
+<p>We will be reading the data into a data frame for easy analysis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;https://raw.githubusercontent.com/dudaspm/LDA_Bias_Data/main/PWD.csv&#39;</span><span class="p">)</span>
@@ -485,8 +480,7 @@ Name: comment_text, dtype: object
 </div>
 </div>
 </div>
-<div class="section" id="lets-try-removing-unnecessary-words-and-cleaning-the-statements-for-analysis-of-topics">
-<h2>Lets try removing unnecessary words and cleaning the statements for analysis of topics.<a class="headerlink" href="#lets-try-removing-unnecessary-words-and-cleaning-the-statements-for-analysis-of-topics" title="Permalink to this headline">¶</a></h2>
+<p>Let’s try removing unnecessary words and cleaning the statements for analysis of topics.</p>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;stopwords&#39;</span><span class="p">)</span>
@@ -551,7 +545,7 @@ Name: comment_text, dtype: object
 </div>
 </div>
 </div>
-<p>For the current analysis, lets define the machine to extract 10 unique topics from the dataset (You can play around with the number of topics.).</p>
+<p>For the current analysis, let’s define the machine to extract ten unique topics from the dataset (You can play around with the number of topics.).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number_of_topics</span> <span class="o">=</span> <span class="mi">10</span>
@@ -561,7 +555,7 @@ Name: comment_text, dtype: object
 </div>
 </div>
 </div>
-<p>Here, the machine performs the topic modelling analysis. (This might take a little while)</p>
+<p>Here, the machine performs the topic modeling analysis. (This might take a little while).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">tf</span><span class="p">)</span>
@@ -650,11 +644,11 @@ Name: comment_text, dtype: object
 <span class="ne">--&gt; </span><span class="mi">222</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
 <span class="nn">c:\users\dudas\anaconda3\envs\wintest\lib\site-packages\sklearn\decomposition\_lda.py</span> in <span class="ni">_update_doc_distribution</span><span class="nt">(X, exp_topic_word_distr, doc_topic_prior, max_iters, mean_change_tol, cal_sstats, random_state)</span>
+<span class="g g-Whitespace">    </span><span class="mi">112</span>             <span class="c1"># The optimal phi_{dwk} is proportional to</span>
+<span class="g g-Whitespace">    </span><span class="mi">113</span>             <span class="c1"># exp(E[log(theta_{dk})]) * exp(E[log(beta_{dw})]).</span>
+<span class="ne">--&gt; </span><span class="mi">114</span>             <span class="n">norm_phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">exp_doc_topic_d</span><span class="p">,</span> <span class="n">exp_topic_word_d</span><span class="p">)</span> <span class="o">+</span> <span class="n">EPS</span>
 <span class="g g-Whitespace">    </span><span class="mi">115</span> 
 <span class="g g-Whitespace">    </span><span class="mi">116</span>             <span class="n">doc_topic_d</span> <span class="o">=</span> <span class="p">(</span><span class="n">exp_doc_topic_d</span> <span class="o">*</span>
-<span class="ne">--&gt; </span><span class="mi">117</span>                            <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">cnts</span> <span class="o">/</span> <span class="n">norm_phi</span><span class="p">,</span> <span class="n">exp_topic_word_d</span><span class="o">.</span><span class="n">T</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">118</span>             <span class="c1"># Note: adds doc_topic_prior to doc_topic_d, in-place.</span>
-<span class="g g-Whitespace">    </span><span class="mi">119</span>             <span class="n">_dirichlet_expectation_1d</span><span class="p">(</span><span class="n">doc_topic_d</span><span class="p">,</span> <span class="n">doc_topic_prior</span><span class="p">,</span>
 
 <span class="nn">&lt;__array_function__ internals&gt;</span> in <span class="ni">dot</span><span class="nt">(*args, **kwargs)</span>
 
@@ -678,8 +672,8 @@ Name: comment_text, dtype: object
 </div>
 </div>
 </div>
-<p>Each column in the table show the most significant words in each topic. With further analysis, we can understand the behaviour of the dataset and type of conversations that occur in them.</p>
-<p>Try changing the no_top_words variable to show more or less words in each topic.</p>
+<p>Each column in the table shows the most important words in each topic. With further analysis, we can understand the behavior of the dataset and the type of conversations that occur in them.</p>
+<p>Try changing the no_top_words variable to show more or fewer words in each topic.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">no_top_words</span> <span class="o">=</span> <span class="mi">15</span>
@@ -1079,7 +1073,6 @@ Name: comment_text, dtype: object
 </div></div></div>
 </div>
 <p>We can go through the topics achieved to understand the most common conversations that occur in this dataset. We will be looking into this content in detail in the following section.</p>
-</div>
 <div class="section" id="now-to-the-analysis">
 <h2>Now to the analysis!<a class="headerlink" href="#now-to-the-analysis" title="Permalink to this headline">¶</a></h2>
 </div>

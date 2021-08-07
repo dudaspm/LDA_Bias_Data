@@ -38,16 +38,16 @@ get_ipython().run_cell_magic('html', '', "\n<iframe src='https://flo.uri.sh/stor
 
 
 # ### An Overview of the analysis 
-# From the above visualization, an anomaly that we come across is that the dataset we are examining is supposed to be related to people with physical, mental and learning disability. But unfortunately based on the topics that were extracted, we notice just a small subset of words that are related to this topic. 
-# Topic 2 have words that addresses themes related to what we were expecting the dataset to have. But the major theme that was noticed in the Top 5 topics are mainly terms that are political. 
+# From the above visualization, an anomaly that we come across is that the dataset we are examining is supposed to be related to people with physical, mental, and learning disabilities. But unfortunately, based on the topics that were extracted, we notice just a small subset of words that are related to this topic. 
+# Topic 2 has words that address themes related to what we were expecting the dataset to have. But the major theme that was noticed in the Top 5 topics are main terms that are political. 
 # (The Top 10 topics show themes related to Religion as well, which is quite interesting.)
 # LDA hence helped in understanding what the conversations the dataset consisted. 
 
-# From the word collection, we also notice that there were certain words such as \'kill' that can be categorized as \'Toxic'\. To analyse this more, we can classify each word based on the fact that it can be categorized wi by an NLP classifier. 
+# From the word collection, we also notice that there were certain words such as \'kill' that can be categorized as \'Toxic'\. To analyze this more, we can classify each word because it can be categorized wi by an NLP classifier. 
 
-# To demonstrate an example of a toxic analysis framework, the below code shows the working of the Unitary library in python.{cite}`Detoxify`
+# To demonstrate an example of a toxic analysis framework, the below code shows the working of the Unitary library in python. {cite}`Detoxify`
 # 
-# This library provides a toxicity score (from a scale of 0 to 1) for the sentece that is passed through it.
+# This library provides a toxicity score (from a scale of 0 to 1) for the sentence that is passed through it.
 
 # In[5]:
 
@@ -96,7 +96,7 @@ get_ipython().run_cell_magic('html', '', "\n<iframe src='https://flo.uri.sh/stor
 
 
 # #### The Bias
-# The visualization shows how contextually toxic words are derived as important words within various topics related to this dataset. This can lead to any Natural Language Processing kernel learning this dataset to provide skewed analysis for the population in consideration, i.e. people with mental, physical and learning disability. This can lead to very discriminatory classifications. 
+# The visualization shows how contextually toxic words are derived as important words within various topics related to this dataset. These toxic words can lead to any Natural Language Processing kernel learning this dataset to provide skewed analysis for the population in consideration, i.e., people with mental, physical, and learning disabilities. This can lead to very discriminatory classifications. 
 
 # ##### An Example
 # To illustrate the impact better, we will be taking the most associated words to the word 'mental' from the results. Below is a network graph that shows the commonly associated words. It is seen that words such as 'Kill' and 'Gun' appear with the closest association. This can lead to the machine contextualizing the word 'mental' to be associated with such words. 
@@ -107,11 +107,11 @@ get_ipython().run_cell_magic('html', '', "\n<iframe src='https://flo.uri.sh/stor
 get_ipython().run_cell_magic('html', '', "<iframe src='https://flo.uri.sh/visualisation/6867000/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe><div style='width:100%!;margin-top:4px!important;text-align:right!important;'><a class='flourish-credit' href='https://public.flourish.studio/visualisation/6867000/?utm_source=embed&utm_campaign=visualisation/6867000' target='_top' style='text-decoration:none!important'><img alt='Made with Flourish' src='https://public.flourish.studio/resources/made_with_flourish.svg' style='width:105px!important;height:16px!important;border:none!important;margin:0!important;'> </a></div>")
 
 
-# It is hence important to be aware of the dataset that is being used to analyse a specific population. With LDA, we were able to understand that this dataset cannot be used as a good representation of the disabled community. To bring about a movement of unbiased AI, we need to perform such preliminary analysis and more, to not cause unintended descrimination. 
+# It is hence essential to be aware of the dataset that is being used to analyze a specific population. With LDA, we were able to understand that this dataset cannot be used as a good representation of the disabled community. To bring about a movement of unbiased AI, we need to perform such preliminary analysis and more not to cause unintended discrimination. 
 
 # ## The Dashboard
 # 
-# Below is the complete data visaulization dashboard of the topic analysis. Feel feel to experiment and compare various labels to your liking. 
+# Below is the complete data visualization dashboard of the topic analysis. Feel feel to experiment and compare various labels to your liking. 
 
 # In[11]:
 
@@ -122,9 +122,3 @@ get_ipython().run_cell_magic('html', '', "\n<iframe src='https://flo.uri.sh/visu
 # ## Thank you!
 # 
 # We thank you for your time! 
-
-# In[ ]:
-
-
-
-

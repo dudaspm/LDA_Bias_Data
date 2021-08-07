@@ -44,8 +44,8 @@
 
 # ## Export to Binder or Google Colab 
 
-# As you can see you can also export these notebooks to Binder or Google Colab. 
+# As you can see, you can also export these notebooks to Binder or Google Colab. 
 # 
 # <img alt="Binder or Google Colab options" src="https://raw.githubusercontent.com/dudaspm/JupyterLab-Python/main/images/topscreen3.png" style="width:240px;margin-left:auto;margin-right:auto;display:block;">
 # 
-# This will take you to their respective websites but you can work with them there, if you would like!
+# This will take you to their respective websites, but you can work with them there if you would like!

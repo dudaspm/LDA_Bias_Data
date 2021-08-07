@@ -24,5 +24,5 @@ Welcome to our introduction and application of latent dirichlet allocation or LD
 
 I know it is tradition to have references at the end of books, but when you are standing on the shoulders of giants. You thank them first.
 
-```{bibliography}
+```{bibliography} 
 ```

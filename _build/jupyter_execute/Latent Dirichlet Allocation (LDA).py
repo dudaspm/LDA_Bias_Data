@@ -15,12 +15,12 @@
 # 
 # 
 
-# Already, we have few things to unpack. What are topics? How are the defined? Do we define or does the computer? What is a large corpus? How many documents do we need?
+# Already, we have few things to unpack. What are the topics? How are they defined? Do we define or does the computer? What is a large corpus? How many documents do we need?
 # 
 # 
 # Let's start with a *large corpus of text documents*. Typically, we would have two documents 📄, five documents 📄, ten million documents 📄, can be thought of as our corpus. Yes, even 1 document 📄 can be used for topic modeling. So, defining, *large corpus of text documents*, can be subjective. 
 # 
-# As specified by Liu {cite:p}`liu2020sentiment` we can start this conversation using one of the two basic types of topic modeling. This being *probablistic Latent Dirichlet Allocation* or *Latent Dirichlet Allocation*. For our conversation, we will be using *Latent Dirichlet Allocation*. 
+# As specified by Liu {cite:p}`liu2020sentiment`, we can start this conversation using one of the two basic types of topic modeling. This being *probabilistic Latent Dirichlet Allocation* or *Latent Dirichlet Allocation*. For our conversation, we will be using *Latent Dirichlet Allocation*. 
 # 
 # 
 # 
@@ -51,7 +51,7 @@
 # Your browser does not support the audio element.
 # </audio>
 # 
-# Our pronoucation stems from a talk by David Blei who is a professor of Statistics and Computer Science at Columbia University during David's talk "Probabilistic Topic Models and User Behavior {cite:p}`Blei_2017`." The citation provides a link to original YouTube video (which is a *great* resource), but specifically, helpful for the pronouciation. 
+# Our pronunciation stems from a talk by David Blei who is a professor of Statistics and Computer Science at Columbia University during David's talk "Probabilistic Topic Models and User Behavior {cite:p}`Blei_2017`." The citation provides a link to original YouTube video (which is a *great* resource), but specifically, helpful for the pronunciation. 
 # 
 
 # ## What is Latent Dirichlet Allocation or LDA?
@@ -62,7 +62,7 @@
 # 
 # Topic Modeling with Documents  📄           
 #             
-# * supervised - Our documents 📄 are pre-labeled with the given topic(s). We can then train 🏋️ and test 🧪 (and also, you can include validate). **Usually** this is split:
+# * supervised - Our documents 📄 are pre-labeled with the given topic(s). We can then train 🏋️ and test 🧪 (and also, you can include validating). **Usually** this is split:
 #     * training 🏋️ 80% 
 #     * testing 🧪 20%. 
 #             
@@ -80,15 +80,15 @@
 # * Do we define or does the computer? 
 #     * LDA is unsupervised, so we define the number of topics. The computer provides the topics themselves. 
 # * What is a large corpus? and How many documents do we need? 
-#     * A bit subjective here. There is a *great* discussion about this by Tang et al.  {cite:p}`tang2014understanding` regarding this. If you have chance, read all the points, but to sum it up
-#         * The number of documents does matter, but at some point, increasing the number does not warrent better results. Even sampling a 1000 papers from 1000000 papers could result in the same, if not, better results than using 1000000 documents. 
-#         * The size of the documents also plays a role, so documents should not be short. Larger documents can be sampled and again, receive the same desired output. 
+#     * A bit subjective here. There is a *great* discussion about this by Tang et al.  {cite:p}`tang2014understanding` regarding this. If you have a chance, read all the points, but to sum it up
+#         * The number of documents does matter, but at some point, increasing the number does not warrant better results. Even sampling 1000 papers from 1000000 papers could result in the same, if not better, results than 1000000 documents. 
+#         * The size of the documents also plays a role, so documents should not be short. Larger documents can be sampled and again receive the same desired output. 
 # 
 # 
 
 # ### A Picture == 1000 Words
 # 
-# One of the best representations of what LDA is and how to utilize it, can be found in Blei's work *Probabilistic topic models* {cite:p}`blei2012probabilistic` Please note, that images and figure text come directly from the work. All credit should go to Blei {cite:p}`blei2012probabilistic`
+# One of the best representations of what LDA is and how to utilize it, can be found in Blei's work *Probabilistic topic models* {cite:p}`blei2012probabilistic` Please note that images and figure text come directly from work. All credit should go to Blei {cite:p}`blei2012probabilistic`
 # 
 # ![The intuitions behind latent Dirichlet allocation](http://deliveryimages.acm.org/10.1145/2140000/2133826/figs/f1.jpg)
 # "Figure 1. The intuitions behind latent Dirichlet allocation. We assume that some number of "topics," which are distributions over words, exist for the whole collection (far left). Each document is assumed to be generated as follows. First choose a distribution over the topics (the histogram at right); then, for each word, choose a topic assignment (the colored coins) and choose the word from the corresponding topic. The topics and topic assignments in this figure are illustrative—they are not fit from real data. {cite:p}`blei2012probabilistic` (Page 3)"
@@ -98,7 +98,7 @@
 
 # ## Let's Try an Example
 
-# For our example, we will be using a subset of books from L. Frank Baum that are part of the public-domain (again, thank you https://www.gutenberg.org).
+# For our example, we will be using a subset of books from L. Frank Baum that are part of the public domain (again, thank you https://www.gutenberg.org).
 # 
 # * The Wonderful Wizard of Oz
 #     * https://www.gutenberg.org/files/55/55-h/55-h.htm
@@ -111,12 +111,12 @@
 # * The Road to Oz
 #     * https://www.gutenberg.org/files/26624/26624-h/26624-h.htm # 
 
-# The books are all in the public domain and the HTML can be found at https://www.gutenberg.org/.
-# We will go through one example of how to get the text from the book using Python. Please note, this will not be the most optimal way to do this but we hope we can make the process clear for you to try with other books or manuscripts. 
+# The books are all in the public domain, and the HTML can be found at https://www.gutenberg.org/.
+# We will go through one example of how to get the text from the book using Python. Please note, this will not be the most optimal way to do this, but we hope we can make the process clear for you to try with other books or manuscripts. 
 # 
 # ### Get the HTML for the Book
 # 
-# We are going to use two libaries for this, one is a standard for python called. 
+# We are going to use two libraries for this; one is a standard for Python called. 
 # 
 # ```python
 # import urllib
@@ -127,7 +127,7 @@
 # from bs4 import BeautifulSoup
 # ```
 # 
-# urllib will get the document and BeautifulSoup makes it easy to parse. 
+# urllib will get the document, and BeautifulSoup makes it easy to parse. 
 
 # In[1]:
 
@@ -140,7 +140,7 @@ html = urlopen(url).read()
 soup = BeautifulSoup(html, features="html.parser")
 
 
-# Here we are remove any CSS (style) or JavaScript (script)
+# Here we remove any CSS (style) or JavaScript (script)
 
 # In[2]:
 
@@ -199,7 +199,7 @@ documents.append(text)
 
 # ### Create Tokens and Vocabulary
 # 
-# Now that we have our books, we need to tokensize the stories by word and then create a vocabular out of these tokens. sklearn is fantastic library that we will be using through-out the notebook {cite:p}`sklearn_api`.
+# Now that we have our books, we need to tokenize the stories by word and then create a vocabulary out of these tokens. sklearn is a fantastic library that we will be using throughout the notebook {cite:p}`sklearn_api`.
 
 # In[5]:
 
@@ -217,7 +217,7 @@ df = cv.fit_transform(documents)
 vocab = cv.get_feature_names()
 
 
-# Let's take a look at the tokens and the number of occurance for the tokens. 
+# Let's take a look at the tokens and the number of occurrence for the tokens. 
 
 # In[7]:
 
@@ -225,7 +225,7 @@ vocab = cv.get_feature_names()
 print (df[0])
 
 
-# The second number listed, is the token number and we use the vocab list to see what the actual word. An example would be to look at the first line. 
+# The second number listed is the token number, and we use the vocab list to see what the actual word. An example would be to look at the first line. 
 # 
 # ```python
 # (0, 8074) 3198
@@ -238,7 +238,7 @@ print (df[0])
 print (vocab[8074])
 
 
-# Not that surprising the word "the" is used that many times. 
+# Not that surprising, the word "the" is used that many times. 
 
 # :::{note}
 # 
@@ -342,7 +342,7 @@ for topic, words in topic_words.items():
 
 # ## Moving On
 # 
-# In the next section, we spend a good amount of time talking about the Dirichlet distribution and how it relates to LDA. 
+# In the next section, we spend a reasonable amount of time talking about the Dirichlet distribution and how it relates to LDA. 
 
 # In[ ]:
 

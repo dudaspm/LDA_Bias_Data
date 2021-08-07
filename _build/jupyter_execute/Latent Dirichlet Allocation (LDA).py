@@ -204,6 +204,12 @@ documents.append(text)
 # In[5]:
 
 
+get_ipython().run_cell_magic('capture', '', '!pip install sklearn')
+
+
+# In[6]:
+
+
 from sklearn.feature_extraction.text import CountVectorizer
 
 cv = CountVectorizer()
@@ -213,7 +219,7 @@ vocab = cv.get_feature_names()
 
 # Let's take a look at the tokens and the number of occurance for the tokens. 
 
-# In[186]:
+# In[7]:
 
 
 print (df[0])
@@ -226,7 +232,7 @@ print (df[0])
 # ```
 # The 8074 token was used 3198 times. The 8074 token is:
 
-# In[187]:
+# In[8]:
 
 
 print (vocab[8074])
@@ -251,7 +257,7 @@ print (vocab[8074])
 # * doc_topic_prior - this relates the Dirichlet distribution (the next notebook goes into full detail about Dirichlet and how it relates to LDA. 
 # 
 
-# In[188]:
+# In[9]:
 
 
 from sklearn.decomposition import LatentDirichletAllocation
@@ -261,7 +267,7 @@ lda.fit(df)
 
 # To print out the top-5 words per topic, we used a solution from StackOverflow {cite:p}`python_LDA`
 
-# In[189]:
+# In[10]:
 
 
 topic_words = {}

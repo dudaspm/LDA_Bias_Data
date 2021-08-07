@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jigsaw - an Implementation of LDA &#8212; JupyterLab + Python</title>
+    <title>Jigsaw - an Implementation of LDA &#8212; Latent Dirichlet Allocation (LDA) &amp; Biased Data</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -72,7 +72,7 @@
     <a class="navbar-brand text-wrap" href="index.html">
       
       
-      <h1 class="site-logo" id="site-title">JupyterLab + Python</h1>
+      <h1 class="site-logo" id="site-title">Latent Dirichlet Allocation (LDA) & Biased Data</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -226,54 +226,15 @@
             </div>
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Jigsaw - an Implementation of LDA
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lets-try-removing-unnecessary-words-and-cleaning-the-statements-for-analysis-of-topics">
+   Lets try removing unnecessary words and cleaning the statements for analysis of topics.
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#we-will-be-reading-the-data-into-a-dataframe-for-easy-analysis">
-     We will be reading the data into a dataframe for easy analysis.
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#lets-try-removing-unnecessary-words-and-cleaning-the-statements-for-analysis-of-topics">
-     Lets try removing unnecessary words and cleaning the statements for analysis of topics.
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#we-will-be-converting-the-statements-to-a-vector-format-for-the-machine-to-understand">
-     We will be converting the statements to a vector format for the machine to understand.
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#for-the-current-analysis-lets-define-the-machine-to-extract-10-unique-topics-from-the-dataset-you-can-play-around-with-the-number-of-topics">
-     For the current analysis, lets define the machine to extract 10 unique topics from the dataset (You can play around with the number of topics.).
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#here-the-machine-performs-the-topic-modelling-analysis-this-might-take-a-little-while">
-     Here, the machine performs the topic modelling analysis. (This might take a little while)
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#each-column-in-the-table-show-the-most-significant-words-in-each-topic-with-further-analysis-we-can-understand-the-behaviour-of-the-dataset-and-type-of-conversations-that-occur-in-them">
-     Each column in the table show the most significant words in each topic. With further analysis, we can understand the behaviour of the dataset and type of conversations that occur in them.
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#now-to-the-analysis">
    Now to the analysis!
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#click-insert-page-name">
-     Click &lt;insert Page name&gt;
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -297,53 +258,37 @@ The dataset therefore contains statements pertained to these parameters. We can 
 <p class="admonition-title">Warning</p>
 <p>Some comments in the dataset may have explicit language.</p>
 </div>
-<p>We will import the necessary libraries here</p>
+<p>We will import the necessary libraries here. One library will also need to be installed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%capture
+!pip install nltk
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%capture
+!pip install sklearn
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">nltk</span>
 <span class="kn">import</span> <span class="nn">re</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-
-
-<span class="kn">import</span> <span class="nn">sklearn</span>
-
-
-
-<span class="kn">import</span> <span class="nn">nltk</span>
-<span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="kn">import</span> <span class="n">RegexpTokenizer</span>
-<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
-<span class="kn">from</span> <span class="nn">nltk.stem</span> <span class="kn">import</span> <span class="n">WordNetLemmatizer</span>
-<span class="kn">import</span> <span class="nn">string</span>
-<span class="kn">import</span> <span class="nn">nltk</span>
-<span class="n">lemmatizer</span> <span class="o">=</span> <span class="n">WordNetLemmatizer</span><span class="p">()</span>
-
 <span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">LatentDirichletAllocation</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">3</span><span class="n">edba3256980</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="ne">----&gt; </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> 
-<span class="g g-Whitespace">      </span><span class="mi">8</span> 
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;seaborn&#39;
-</pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="we-will-be-reading-the-data-into-a-dataframe-for-easy-analysis">
-<h2>We will be reading the data into a dataframe for easy analysis.<a class="headerlink" href="#we-will-be-reading-the-data-into-a-dataframe-for-easy-analysis" title="Permalink to this headline">¶</a></h2>
+<p>We will be reading the data into a dataframe for easy analysis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;PWD.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;https://raw.githubusercontent.com/dudaspm/LDA_Bias_Data/main/PWD.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -540,10 +485,9 @@ Name: comment_text, dtype: object
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="lets-try-removing-unnecessary-words-and-cleaning-the-statements-for-analysis-of-topics">
 <h2>Lets try removing unnecessary words and cleaning the statements for analysis of topics.<a class="headerlink" href="#lets-try-removing-unnecessary-words-and-cleaning-the-statements-for-analysis-of-topics" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;stopwords&#39;</span><span class="p">)</span>
 </pre></div>
@@ -551,7 +495,7 @@ Name: comment_text, dtype: object
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package stopwords to
-[nltk_data]     C:\Users\prana\AppData\Roaming\nltk_data...
+[nltk_data]     C:\Users\dudas\AppData\Roaming\nltk_data...
 [nltk_data]   Package stopwords is already up-to-date!
 </pre></div>
 </div>
@@ -590,9 +534,7 @@ Name: comment_text, dtype: object
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="we-will-be-converting-the-statements-to-a-vector-format-for-the-machine-to-understand">
-<h2>We will be converting the statements to a vector format for the machine to understand.<a class="headerlink" href="#we-will-be-converting-the-statements-to-a-vector-format-for-the-machine-to-understand" title="Permalink to this headline">¶</a></h2>
+<p>We will be converting the statements to a vector format for the machine to understand.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
@@ -609,9 +551,7 @@ Name: comment_text, dtype: object
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="for-the-current-analysis-lets-define-the-machine-to-extract-10-unique-topics-from-the-dataset-you-can-play-around-with-the-number-of-topics">
-<h2>For the current analysis, lets define the machine to extract 10 unique topics from the dataset (You can play around with the number of topics.).<a class="headerlink" href="#for-the-current-analysis-lets-define-the-machine-to-extract-10-unique-topics-from-the-dataset-you-can-play-around-with-the-number-of-topics" title="Permalink to this headline">¶</a></h2>
+<p>For the current analysis, lets define the machine to extract 10 unique topics from the dataset (You can play around with the number of topics.).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number_of_topics</span> <span class="o">=</span> <span class="mi">10</span>
@@ -621,9 +561,7 @@ Name: comment_text, dtype: object
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="here-the-machine-performs-the-topic-modelling-analysis-this-might-take-a-little-while">
-<h2>Here, the machine performs the topic modelling analysis. (This might take a little while)<a class="headerlink" href="#here-the-machine-performs-the-topic-modelling-analysis-this-might-take-a-little-while" title="Permalink to this headline">¶</a></h2>
+<p>Here, the machine performs the topic modelling analysis. (This might take a little while)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">tf</span><span class="p">)</span>
@@ -631,7 +569,96 @@ Name: comment_text, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LatentDirichletAllocation(random_state=0)
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">01</span><span class="n">c38d5c891a</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">tf</span><span class="p">)</span>
+
+<span class="nn">c:\users\dudas\anaconda3\envs\wintest\lib\site-packages\sklearn\decomposition\_lda.py</span> in <span class="ni">fit</span><span class="nt">(self, X, y)</span>
+<span class="g g-Whitespace">    </span><span class="mi">579</span>                     <span class="c1"># batch update</span>
+<span class="g g-Whitespace">    </span><span class="mi">580</span>                     <span class="bp">self</span><span class="o">.</span><span class="n">_em_step</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">total_samples</span><span class="o">=</span><span class="n">n_samples</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">581</span>                                   <span class="n">batch_update</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">parallel</span><span class="o">=</span><span class="n">parallel</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">582</span> 
+<span class="g g-Whitespace">    </span><span class="mi">583</span>                 <span class="c1"># check perplexity</span>
+
+<span class="nn">c:\users\dudas\anaconda3\envs\wintest\lib\site-packages\sklearn\decomposition\_lda.py</span> in <span class="ni">_em_step</span><span class="nt">(self, X, total_samples, batch_update, parallel)</span>
+<span class="g g-Whitespace">    </span><span class="mi">455</span>         <span class="c1"># E-step</span>
+<span class="g g-Whitespace">    </span><span class="mi">456</span>         <span class="n">_</span><span class="p">,</span> <span class="n">suff_stats</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_e_step</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">cal_sstats</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_init</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">457</span>                                      <span class="n">parallel</span><span class="o">=</span><span class="n">parallel</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">458</span> 
+<span class="g g-Whitespace">    </span><span class="mi">459</span>         <span class="c1"># M-step</span>
+
+<span class="nn">c:\users\dudas\anaconda3\envs\wintest\lib\site-packages\sklearn\decomposition\_lda.py</span> in <span class="ni">_e_step</span><span class="nt">(self, X, cal_sstats, random_init, parallel)</span>
+<span class="g g-Whitespace">    </span><span class="mi">408</span>                                               <span class="bp">self</span><span class="o">.</span><span class="n">mean_change_tol</span><span class="p">,</span> <span class="n">cal_sstats</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">409</span>                                               <span class="n">random_state</span><span class="p">)</span>
+<span class="nn">--&gt; 410             for idx_slice</span> in <span class="ni">gen_even_slices</span><span class="nt">(X.shape[0], n_jobs))</span>
+<span class="g g-Whitespace">    </span><span class="mi">411</span> 
+<span class="g g-Whitespace">    </span><span class="mi">412</span>         <span class="c1"># merge result</span>
+
+<span class="nn">c:\users\dudas\anaconda3\envs\wintest\lib\site-packages\joblib\parallel.py</span> in <span class="ni">__call__</span><span class="nt">(self, iterable)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1039</span>             <span class="c1"># remaining jobs.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1040</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_iterating</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="ne">-&gt; </span><span class="mi">1041</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dispatch_one_batch</span><span class="p">(</span><span class="n">iterator</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1042</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_iterating</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_original_iterator</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">   </span><span class="mi">1043</span> 
+
+<span class="nn">c:\users\dudas\anaconda3\envs\wintest\lib\site-packages\joblib\parallel.py</span> in <span class="ni">dispatch_one_batch</span><span class="nt">(self, iterator)</span>
+<span class="g g-Whitespace">    </span><span class="mi">857</span>                 <span class="k">return</span> <span class="kc">False</span>
+<span class="g g-Whitespace">    </span><span class="mi">858</span>             <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">859</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_dispatch</span><span class="p">(</span><span class="n">tasks</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">860</span>                 <span class="k">return</span> <span class="kc">True</span>
+<span class="g g-Whitespace">    </span><span class="mi">861</span> 
+
+<span class="nn">c:\users\dudas\anaconda3\envs\wintest\lib\site-packages\joblib\parallel.py</span> in <span class="ni">_dispatch</span><span class="nt">(self, batch)</span>
+<span class="g g-Whitespace">    </span><span class="mi">775</span>         <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lock</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">776</span>             <span class="n">job_idx</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_jobs</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">777</span>             <span class="n">job</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="o">.</span><span class="n">apply_async</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">cb</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">778</span>             <span class="c1"># A job can complete so quickly than its callback is</span>
+<span class="g g-Whitespace">    </span><span class="mi">779</span>             <span class="c1"># called before we get here, causing self._jobs to</span>
+
+<span class="nn">c:\users\dudas\anaconda3\envs\wintest\lib\site-packages\joblib\_parallel_backends.py</span> in <span class="ni">apply_async</span><span class="nt">(self, func, callback)</span>
+<span class="g g-Whitespace">    </span><span class="mi">206</span>     <span class="k">def</span> <span class="nf">apply_async</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">207</span>         <span class="sd">&quot;&quot;&quot;Schedule a func to be run&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">208</span>         <span class="n">result</span> <span class="o">=</span> <span class="n">ImmediateResult</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">209</span>         <span class="k">if</span> <span class="n">callback</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span>             <span class="n">callback</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+<span class="nn">c:\users\dudas\anaconda3\envs\wintest\lib\site-packages\joblib\_parallel_backends.py</span> in <span class="ni">__init__</span><span class="nt">(self, batch)</span>
+<span class="g g-Whitespace">    </span><span class="mi">570</span>         <span class="c1"># Don&#39;t delay the application, to avoid keeping the input</span>
+<span class="g g-Whitespace">    </span><span class="mi">571</span>         <span class="c1"># arguments in memory</span>
+<span class="ne">--&gt; </span><span class="mi">572</span>         <span class="bp">self</span><span class="o">.</span><span class="n">results</span> <span class="o">=</span> <span class="n">batch</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">573</span> 
+<span class="g g-Whitespace">    </span><span class="mi">574</span>     <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">c:\users\dudas\anaconda3\envs\wintest\lib\site-packages\joblib\parallel.py</span> in <span class="ni">__call__</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">261</span>         <span class="k">with</span> <span class="n">parallel_backend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_jobs</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">262</span>             <span class="k">return</span> <span class="p">[</span><span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">263</span>                     <span class="k">for</span> <span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">264</span> 
+<span class="g g-Whitespace">    </span><span class="mi">265</span>     <span class="k">def</span> <span class="nf">__reduce__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">c:\users\dudas\anaconda3\envs\wintest\lib\site-packages\joblib\parallel.py</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">    </span><span class="mi">261</span>         <span class="k">with</span> <span class="n">parallel_backend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_jobs</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">262</span>             <span class="k">return</span> <span class="p">[</span><span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">263</span>                     <span class="k">for</span> <span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">264</span> 
+<span class="g g-Whitespace">    </span><span class="mi">265</span>     <span class="k">def</span> <span class="nf">__reduce__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">c:\users\dudas\anaconda3\envs\wintest\lib\site-packages\sklearn\utils\fixes.py</span> in <span class="ni">__call__</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">220</span>     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">221</span>         <span class="k">with</span> <span class="n">config_context</span><span class="p">(</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">222</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">c:\users\dudas\anaconda3\envs\wintest\lib\site-packages\sklearn\decomposition\_lda.py</span> in <span class="ni">_update_doc_distribution</span><span class="nt">(X, exp_topic_word_distr, doc_topic_prior, max_iters, mean_change_tol, cal_sstats, random_state)</span>
+<span class="g g-Whitespace">    </span><span class="mi">115</span> 
+<span class="g g-Whitespace">    </span><span class="mi">116</span>             <span class="n">doc_topic_d</span> <span class="o">=</span> <span class="p">(</span><span class="n">exp_doc_topic_d</span> <span class="o">*</span>
+<span class="ne">--&gt; </span><span class="mi">117</span>                            <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">cnts</span> <span class="o">/</span> <span class="n">norm_phi</span><span class="p">,</span> <span class="n">exp_topic_word_d</span><span class="o">.</span><span class="n">T</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">118</span>             <span class="c1"># Note: adds doc_topic_prior to doc_topic_d, in-place.</span>
+<span class="g g-Whitespace">    </span><span class="mi">119</span>             <span class="n">_dirichlet_expectation_1d</span><span class="p">(</span><span class="n">doc_topic_d</span><span class="p">,</span> <span class="n">doc_topic_prior</span><span class="p">,</span>
+
+<span class="nn">&lt;__array_function__ internals&gt;</span> in <span class="ni">dot</span><span class="nt">(*args, **kwargs)</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
@@ -651,9 +678,7 @@ Name: comment_text, dtype: object
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="each-column-in-the-table-show-the-most-significant-words-in-each-topic-with-further-analysis-we-can-understand-the-behaviour-of-the-dataset-and-type-of-conversations-that-occur-in-them">
-<h2>Each column in the table show the most significant words in each topic. With further analysis, we can understand the behaviour of the dataset and type of conversations that occur in them.<a class="headerlink" href="#each-column-in-the-table-show-the-most-significant-words-in-each-topic-with-further-analysis-we-can-understand-the-behaviour-of-the-dataset-and-type-of-conversations-that-occur-in-them" title="Permalink to this headline">¶</a></h2>
+<p>Each column in the table show the most significant words in each topic. With further analysis, we can understand the behaviour of the dataset and type of conversations that occur in them.</p>
 <p>Try changing the no_top_words variable to show more or less words in each topic.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1055,11 +1080,8 @@ Name: comment_text, dtype: object
 </div>
 <p>We can go through the topics achieved to understand the most common conversations that occur in this dataset. We will be looking into this content in detail in the following section.</p>
 </div>
-</div>
 <div class="section" id="now-to-the-analysis">
-<h1>Now to the analysis!<a class="headerlink" href="#now-to-the-analysis" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="click-insert-page-name">
-<h2>Click &lt;insert Page name&gt;<a class="headerlink" href="#click-insert-page-name" title="Permalink to this headline">¶</a></h2>
+<h2>Now to the analysis!<a class="headerlink" href="#now-to-the-analysis" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 

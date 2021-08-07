@@ -30,6 +30,12 @@ get_ipython().run_cell_magic('capture', '', '!pip install nltk')
 # In[2]:
 
 
+get_ipython().run_cell_magic('capture', '', '!pip install sklearn')
+
+
+# In[3]:
+
+
 import pandas as pd
 import nltk
 import re
@@ -38,7 +44,7 @@ from sklearn.decomposition import LatentDirichletAllocation
 
 # We will be reading the data into a dataframe for easy analysis.
 
-# In[2]:
+# In[4]:
 
 
 df = pd.read_csv(r'https://raw.githubusercontent.com/dudaspm/LDA_Bias_Data/main/PWD.csv')
@@ -46,7 +52,7 @@ df = pd.read_csv(r'https://raw.githubusercontent.com/dudaspm/LDA_Bias_Data/main/
 
 # This is how the data looks like:
 
-# In[3]:
+# In[5]:
 
 
 df.head()
@@ -55,7 +61,7 @@ df.head()
 # Below are just a few of the comments in this group. You can view more comments by changing the parameter in the 'head' function.
 # 
 
-# In[4]:
+# In[6]:
 
 
 pd.set_option('display.max_colwidth', None)
@@ -64,7 +70,7 @@ df.comment_text.head(3)
 
 # ##### Lets try removing unnecessary words and cleaning the statements for analysis of topics.
 
-# In[5]:
+# In[7]:
 
 
 nltk.download('stopwords')
@@ -118,7 +124,7 @@ tf_feature_names = vectorizer.get_feature_names()
 
 # For the current analysis, lets define the machine to extract 10 unique topics from the dataset (You can play around with the number of topics.).
 
-# In[12]:
+# In[10]:
 
 
 number_of_topics = 10
@@ -128,7 +134,7 @@ model = LatentDirichletAllocation(n_components=number_of_topics, random_state=0)
 
 # Here, the machine performs the topic modelling analysis. (This might take a little while)
 
-# In[13]:
+# In[11]:
 
 
 model.fit(tf)

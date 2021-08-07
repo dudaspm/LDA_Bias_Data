@@ -231,15 +231,6 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#to-demonstrate-an-example-of-a-toxic-analysis-framework-the-below-code-shows-the-working-of-the-unitary-library-in-python-detoxify-br">
-     To demonstrate an example of a toxic analysis framework, the below code shows the working of the Unitary library in python.
-     <span class="xref cite">
-      Detoxify
-     </span>
-     <br/>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#the-bias">
      The Bias
     </a>
@@ -249,14 +240,19 @@
        An Example
       </a>
      </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#the-dashboard">
-       The dashboard
-      </a>
-     </li>
     </ul>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-dashboard">
+   The Dashboard
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#thank-you">
+   Thank you!
+  </a>
  </li>
 </ul>
 
@@ -280,77 +276,19 @@
 </div>
 </div>
 </div>
-<p>In the previous section, we explored how to generate topics from a textual dataset using LDA. But how can this be used as an application? <br> Therefore, in this section, we will look into the possible ways to read the topics as well as understand how it can be used.</p>
+<p>In the previous section, we explored how to generate topics from a textual dataset using LDA. But how can this be used as an application?</p>
+<p>Therefore, in this section, we will look into the possible ways to read the topics as well as understand how it can be used.</p>
 <p>We will now import the preloaded data of the LDA result that was achieved in the previous section.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;topics.csv&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="n">c5e5b76f929</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;topics.csv&quot;</span><span class="p">)</span>
-
-<span class="nn">c:\users\dudas\anaconda3\envs\wintest\lib\site-packages\pandas\io\parsers.py</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, dialect, error_bad_lines, warn_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">608</span>     <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">609</span> 
-<span class="ne">--&gt; </span><span class="mi">610</span>     <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">611</span> 
-<span class="g g-Whitespace">    </span><span class="mi">612</span> 
-
-<span class="nn">c:\users\dudas\anaconda3\envs\wintest\lib\site-packages\pandas\io\parsers.py</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">460</span> 
-<span class="g g-Whitespace">    </span><span class="mi">461</span>     <span class="c1"># Create the parser.</span>
-<span class="ne">--&gt; </span><span class="mi">462</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">463</span> 
-<span class="g g-Whitespace">    </span><span class="mi">464</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
-
-<span class="nn">c:\users\dudas\anaconda3\envs\wintest\lib\site-packages\pandas\io\parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, engine, **kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">817</span>             <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">818</span> 
-<span class="ne">--&gt; </span><span class="mi">819</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">820</span> 
-<span class="g g-Whitespace">    </span><span class="mi">821</span>     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
-<span class="nn">c:\users\dudas\anaconda3\envs\wintest\lib\site-packages\pandas\io\parsers.py</span> in <span class="ni">_make_engine</span><span class="nt">(self, engine)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1048</span>             <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1049</span>         <span class="c1"># error: Too many arguments for &quot;ParserBase&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1050</span>         <span class="k">return</span> <span class="n">mapping</span><span class="p">[</span><span class="n">engine</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>  <span class="c1"># type: ignore[call-arg]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1051</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1052</span>     <span class="k">def</span> <span class="nf">_failover_to_python</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
-<span class="nn">c:\users\dudas\anaconda3\envs\wintest\lib\site-packages\pandas\io\parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, src, **kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1865</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1866</span>         <span class="c1"># open handles</span>
-<span class="ne">-&gt; </span><span class="mi">1867</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_open_handles</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1868</span>         <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-<span class="g g-Whitespace">   </span><span class="mi">1869</span>         <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="s2">&quot;compression&quot;</span><span class="p">):</span>
-
-<span class="nn">c:\users\dudas\anaconda3\envs\wintest\lib\site-packages\pandas\io\parsers.py</span> in <span class="ni">_open_handles</span><span class="nt">(self, src, kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1366</span>             <span class="n">compression</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compression&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1367</span>             <span class="n">memory_map</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
-<span class="ne">-&gt; </span><span class="mi">1368</span>             <span class="n">storage_options</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1369</span>         <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1370</span> 
-
-<span class="nn">c:\users\dudas\anaconda3\envs\wintest\lib\site-packages\pandas\io\common.py</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">645</span>                 <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">646</span>                 <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
-<span class="ne">--&gt; </span><span class="mi">647</span>                 <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">648</span>             <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">649</span>         <span class="k">else</span><span class="p">:</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;topics.csv&#39;
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/dudaspm/LDA_Bias_Data/main/topics.csv&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -517,252 +455,12 @@
       <td>peopl</td>
       <td>798.2</td>
     </tr>
-    <tr>
-      <th>5</th>
-      <td>5</td>
-      <td>republican</td>
-      <td>550.2</td>
-      <td>help</td>
-      <td>527.0</td>
-      <td>canadian</td>
-      <td>462.9</td>
-      <td>problem</td>
-      <td>491.9</td>
-      <td>polic</td>
-      <td>...</td>
-      <td>one</td>
-      <td>500.8</td>
-      <td>person</td>
-      <td>629.7</td>
-      <td>”</td>
-      <td>486.9</td>
-      <td>need</td>
-      <td>1169.6</td>
-      <td>would</td>
-      <td>740.9</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>6</td>
-      <td>obama</td>
-      <td>542.2</td>
-      <td>need</td>
-      <td>504.5</td>
-      <td>islam</td>
-      <td>448.3</td>
-      <td>use</td>
-      <td>476.3</td>
-      <td>ill</td>
-      <td>...</td>
-      <td>get</td>
-      <td>458.6</td>
-      <td>say</td>
-      <td>608.7</td>
-      <td>right</td>
-      <td>484.1</td>
-      <td>work</td>
-      <td>956.9</td>
-      <td>church</td>
-      <td>686.1</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>7</td>
-      <td>peopl</td>
-      <td>540.2</td>
-      <td>www</td>
-      <td>467.5</td>
-      <td>right</td>
-      <td>409.8</td>
-      <td>issu</td>
-      <td>456.4</td>
-      <td>one</td>
-      <td>...</td>
-      <td>student</td>
-      <td>385.0</td>
-      <td>know</td>
-      <td>607.6</td>
-      <td>gender</td>
-      <td>454.1</td>
-      <td>ill</td>
-      <td>903.6</td>
-      <td>like</td>
-      <td>656.3</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>8</td>
-      <td>man</td>
-      <td>499.8</td>
-      <td>treatment</td>
-      <td>453.5</td>
-      <td>like</td>
-      <td>400.1</td>
-      <td>caus</td>
-      <td>444.5</td>
-      <td>would</td>
-      <td>...</td>
-      <td>work</td>
-      <td>373.3</td>
-      <td>issu</td>
-      <td>572.7</td>
-      <td>women</td>
-      <td>446.7</td>
-      <td>get</td>
-      <td>825.9</td>
-      <td>men</td>
-      <td>634.9</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>9</td>
-      <td>democrat</td>
-      <td>488.0</td>
-      <td>com</td>
-      <td>415.4</td>
-      <td>govern</td>
-      <td>385.2</td>
-      <td>suicid</td>
-      <td>405.2</td>
-      <td>get</td>
-      <td>...</td>
-      <td>need</td>
-      <td>370.2</td>
-      <td>ill</td>
-      <td>569.4</td>
-      <td>’</td>
-      <td>443.7</td>
-      <td>help</td>
-      <td>795.8</td>
-      <td>children</td>
-      <td>619.3</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>10</td>
-      <td>get</td>
-      <td>475.6</td>
-      <td>get</td>
-      <td>362.2</td>
-      <td>peopl</td>
-      <td>378.4</td>
-      <td>depress</td>
-      <td>381.5</td>
-      <td>person</td>
-      <td>...</td>
-      <td>would</td>
-      <td>369.8</td>
-      <td>make</td>
-      <td>567.4</td>
-      <td>mental</td>
-      <td>441.8</td>
-      <td>money</td>
-      <td>740.8</td>
-      <td>know</td>
-      <td>613.1</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>11</td>
-      <td>white</td>
-      <td>453.6</td>
-      <td>doctor</td>
-      <td>342.3</td>
-      <td>christian</td>
-      <td>373.7</td>
-      <td>gun</td>
-      <td>369.9</td>
-      <td>right</td>
-      <td>...</td>
-      <td>like</td>
-      <td>340.8</td>
-      <td>one</td>
-      <td>553.2</td>
-      <td>group</td>
-      <td>415.7</td>
-      <td>pay</td>
-      <td>702.1</td>
-      <td>live</td>
-      <td>592.2</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>12</td>
-      <td>think</td>
-      <td>435.9</td>
-      <td>patient</td>
-      <td>320.2</td>
-      <td>liber</td>
-      <td>358.4</td>
-      <td>violenc</td>
-      <td>320.6</td>
-      <td>go</td>
-      <td>...</td>
-      <td>cathol</td>
-      <td>337.7</td>
-      <td>peopl</td>
-      <td>513.0</td>
-      <td>hate</td>
-      <td>392.3</td>
-      <td>problem</td>
-      <td>662.4</td>
-      <td>child</td>
-      <td>582.4</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>13</td>
-      <td>support</td>
-      <td>432.4</td>
-      <td>year</td>
-      <td>302.0</td>
-      <td>one</td>
-      <td>333.1</td>
-      <td>alcohol</td>
-      <td>310.5</td>
-      <td>could</td>
-      <td>...</td>
-      <td>educ</td>
-      <td>329.4</td>
-      <td>use</td>
-      <td>494.8</td>
-      <td>male</td>
-      <td>363.5</td>
-      <td>mani</td>
-      <td>660.3</td>
-      <td>woman</td>
-      <td>581.8</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>14</td>
-      <td>donald</td>
-      <td>410.1</td>
-      <td>disord</td>
-      <td>297.7</td>
-      <td>blind</td>
-      <td>329.4</td>
-      <td>addict</td>
-      <td>278.2</td>
-      <td>guy</td>
-      <td>...</td>
-      <td>church</td>
-      <td>309.2</td>
-      <td>someon</td>
-      <td>482.5</td>
-      <td>one</td>
-      <td>360.8</td>
-      <td>would</td>
-      <td>660.1</td>
-      <td>love</td>
-      <td>553.7</td>
-    </tr>
   </tbody>
 </table>
-<p>15 rows × 21 columns</p>
+<p>5 rows × 21 columns</p>
 </div></div></div>
 </div>
-<p>We shall try visualizing these results to understand what they talk about and what major themes are present in them. With the help of Jupyter Books, we can now embedd not just python code but HTML based projects as well.</p>
+<p>We will visualize these results to understand what major themes are present in them.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%html</span>
@@ -783,8 +481,7 @@ Topic 2 have words that addresses themes related to what we were expecting the d
 (The Top 10 topics show themes related to Religion as well, which is quite interesting.)
 LDA hence helped in understanding what the conversations the dataset consisted.</p>
 <p>From the word collection, we also notice that there were certain words such as ‘kill’ that can be categorized as ‘Toxic’. To analyse this more, we can classify each word based on the fact that it can be categorized wi by an NLP classifier.</p>
-<div class="section" id="to-demonstrate-an-example-of-a-toxic-analysis-framework-the-below-code-shows-the-working-of-the-unitary-library-in-python-detoxify-br">
-<h3>To demonstrate an example of a toxic analysis framework, the below code shows the working of the Unitary library in python.<span id="id1">[]</span> <br><a class="headerlink" href="#to-demonstrate-an-example-of-a-toxic-analysis-framework-the-below-code-shows-the-working-of-the-unitary-library-in-python-detoxify-br" title="Permalink to this headline">¶</a></h3>
+<p>To demonstrate an example of a toxic analysis framework, the below code shows the working of the Unitary library in python.<span id="id1">[]</span></p>
 <p>This library provides a toxicity score (from a scale of 0 to 1) for the sentece that is passed through it.</p>
 <div class="cell tag_remove-input docutils container">
 </div>
@@ -798,7 +495,6 @@ Here is an example of what this would look like.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">API_URL</span> <span class="o">=</span> <span class="s2">&quot;https://api-inference.huggingface.co/models/unitary/toxic-bert&quot;</span>
-
 
 <span class="k">def</span> <span class="nf">query</span><span class="p">(</span><span class="n">payload</span><span class="p">):</span>
     <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">API_URL</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
@@ -824,7 +520,8 @@ Here is an example of what this would look like.</p>
 </div>
 </div>
 </div>
-<p>You can input words or sentences in &lt;insert word here&gt;, in the code, to look at the results that are generated through this. <br> This example can provide an idea as to how ML can be used for toxicity analysis.</p>
+<p>You can input words or sentences in &lt;insert word here&gt;, in the code, to look at the results that are generated through this.</p>
+<p>This example can provide an idea as to how ML can be used for toxicity analysis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">query</span><span class="p">({</span><span class="s2">&quot;inputs&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;insert word here&gt;&quot;</span><span class="p">})</span>
@@ -855,7 +552,6 @@ Here is an example of what this would look like.</p>
 <iframe src='https://flo.uri.sh/story/941681/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe><div style='width:100%!;margin-top:4px!important;text-align:right!important;'><a class='flourish-credit' href='https://public.flourish.studio/story/941681/?utm_source=embed&utm_campaign=story/941681' target='_top' style='text-decoration:none!important'><img alt='Made with Flourish' src='https://public.flourish.studio/resources/made_with_flourish.svg' style='width:105px!important;height:16px!important;border:none!important;margin:0!important;'> </a></div>
 </div></div>
 </div>
-</div>
 <div class="section" id="the-bias">
 <h3>The Bias<a class="headerlink" href="#the-bias" title="Permalink to this headline">¶</a></h3>
 <p>The visualization shows how contextually toxic words are derived as important words within various topics related to this dataset. This can lead to any Natural Language Processing kernel learning this dataset to provide skewed analysis for the population in consideration, i.e. people with mental, physical and learning disability. This can lead to very discriminatory classifications.</p>
@@ -875,8 +571,10 @@ Here is an example of what this would look like.</p>
 </div>
 <p>It is hence important to be aware of the dataset that is being used to analyse a specific population. With LDA, we were able to understand that this dataset cannot be used as a good representation of the disabled community. To bring about a movement of unbiased AI, we need to perform such preliminary analysis and more, to not cause unintended descrimination.</p>
 </div>
+</div>
+</div>
 <div class="section" id="the-dashboard">
-<h4>The dashboard<a class="headerlink" href="#the-dashboard" title="Permalink to this headline">¶</a></h4>
+<h2>The Dashboard<a class="headerlink" href="#the-dashboard" title="Permalink to this headline">¶</a></h2>
 <p>Below is the complete data visaulization dashboard of the topic analysis. Feel feel to experiment and compare various labels to your liking.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -892,7 +590,9 @@ Here is an example of what this would look like.</p>
 </div></div>
 </div>
 </div>
-</div>
+<div class="section" id="thank-you">
+<h2>Thank you!<a class="headerlink" href="#thank-you" title="Permalink to this headline">¶</a></h2>
+<p>We thank you for your time!</p>
 </div>
 </div>
 

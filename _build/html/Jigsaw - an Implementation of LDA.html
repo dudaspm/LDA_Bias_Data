@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jigsaw - an Implementation of LDA &#8212; JupyterLab + Python</title>
+    <title>Jigsaw - an Implementation of LDA &#8212; Latent Dirichlet Allocation (LDA) &amp; Biased Data</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -72,7 +72,7 @@
     <a class="navbar-brand text-wrap" href="index.html">
       
       
-      <h1 class="site-logo" id="site-title">JupyterLab + Python</h1>
+      <h1 class="site-logo" id="site-title">Latent Dirichlet Allocation (LDA) & Biased Data</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -226,54 +226,15 @@
             </div>
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Jigsaw - an Implementation of LDA
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lets-try-removing-unnecessary-words-and-cleaning-the-statements-for-analysis-of-topics">
+   Lets try removing unnecessary words and cleaning the statements for analysis of topics.
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#we-will-be-reading-the-data-into-a-dataframe-for-easy-analysis">
-     We will be reading the data into a dataframe for easy analysis.
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#lets-try-removing-unnecessary-words-and-cleaning-the-statements-for-analysis-of-topics">
-     Lets try removing unnecessary words and cleaning the statements for analysis of topics.
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#we-will-be-converting-the-statements-to-a-vector-format-for-the-machine-to-understand">
-     We will be converting the statements to a vector format for the machine to understand.
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#for-the-current-analysis-lets-define-the-machine-to-extract-10-unique-topics-from-the-dataset-you-can-play-around-with-the-number-of-topics">
-     For the current analysis, lets define the machine to extract 10 unique topics from the dataset (You can play around with the number of topics.).
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#here-the-machine-performs-the-topic-modelling-analysis-this-might-take-a-little-while">
-     Here, the machine performs the topic modelling analysis. (This might take a little while)
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#each-column-in-the-table-show-the-most-significant-words-in-each-topic-with-further-analysis-we-can-understand-the-behaviour-of-the-dataset-and-type-of-conversations-that-occur-in-them">
-     Each column in the table show the most significant words in each topic. With further analysis, we can understand the behaviour of the dataset and type of conversations that occur in them.
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#now-to-the-analysis">
    Now to the analysis!
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#click-insert-page-name">
-     Click &lt;insert Page name&gt;
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -297,29 +258,20 @@ The dataset therefore contains statements pertained to these parameters. We can 
 <p class="admonition-title">Warning</p>
 <p>Some comments in the dataset may have explicit language.</p>
 </div>
-<p>We will import the necessary libraries here</p>
+<p>We will import the necessary libraries here. One library will also need to be installed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%capture
+!pip install nltk
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">nltk</span>
 <span class="kn">import</span> <span class="nn">re</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-
-
-<span class="kn">import</span> <span class="nn">sklearn</span>
-
-
-
-<span class="kn">import</span> <span class="nn">nltk</span>
-<span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="kn">import</span> <span class="n">RegexpTokenizer</span>
-<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
-<span class="kn">from</span> <span class="nn">nltk.stem</span> <span class="kn">import</span> <span class="n">WordNetLemmatizer</span>
-<span class="kn">import</span> <span class="nn">string</span>
-<span class="kn">import</span> <span class="nn">nltk</span>
-<span class="n">lemmatizer</span> <span class="o">=</span> <span class="n">WordNetLemmatizer</span><span class="p">()</span>
-
 <span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">LatentDirichletAllocation</span>
 </pre></div>
 </div>
@@ -327,23 +279,20 @@ The dataset therefore contains statements pertained to these parameters. We can 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">3</span><span class="n">edba3256980</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="ne">----&gt; </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> 
-<span class="g g-Whitespace">      </span><span class="mi">8</span> 
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">12</span><span class="n">b76fa0dbf0</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">nltk</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">re</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">LatentDirichletAllocation</span>
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;seaborn&#39;
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;sklearn&#39;
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="we-will-be-reading-the-data-into-a-dataframe-for-easy-analysis">
-<h2>We will be reading the data into a dataframe for easy analysis.<a class="headerlink" href="#we-will-be-reading-the-data-into-a-dataframe-for-easy-analysis" title="Permalink to this headline">¶</a></h2>
+<p>We will be reading the data into a dataframe for easy analysis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;PWD.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;https://raw.githubusercontent.com/dudaspm/LDA_Bias_Data/main/PWD.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -540,10 +489,9 @@ Name: comment_text, dtype: object
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="lets-try-removing-unnecessary-words-and-cleaning-the-statements-for-analysis-of-topics">
 <h2>Lets try removing unnecessary words and cleaning the statements for analysis of topics.<a class="headerlink" href="#lets-try-removing-unnecessary-words-and-cleaning-the-statements-for-analysis-of-topics" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;stopwords&#39;</span><span class="p">)</span>
 </pre></div>
@@ -551,8 +499,8 @@ Name: comment_text, dtype: object
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package stopwords to
-[nltk_data]     C:\Users\prana\AppData\Roaming\nltk_data...
-[nltk_data]   Package stopwords is already up-to-date!
+[nltk_data]     C:\Users\dudas\AppData\Roaming\nltk_data...
+[nltk_data]   Unzipping corpora\stopwords.zip.
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -590,9 +538,7 @@ Name: comment_text, dtype: object
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="we-will-be-converting-the-statements-to-a-vector-format-for-the-machine-to-understand">
-<h2>We will be converting the statements to a vector format for the machine to understand.<a class="headerlink" href="#we-will-be-converting-the-statements-to-a-vector-format-for-the-machine-to-understand" title="Permalink to this headline">¶</a></h2>
+<p>We will be converting the statements to a vector format for the machine to understand.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
@@ -609,9 +555,7 @@ Name: comment_text, dtype: object
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="for-the-current-analysis-lets-define-the-machine-to-extract-10-unique-topics-from-the-dataset-you-can-play-around-with-the-number-of-topics">
-<h2>For the current analysis, lets define the machine to extract 10 unique topics from the dataset (You can play around with the number of topics.).<a class="headerlink" href="#for-the-current-analysis-lets-define-the-machine-to-extract-10-unique-topics-from-the-dataset-you-can-play-around-with-the-number-of-topics" title="Permalink to this headline">¶</a></h2>
+<p>For the current analysis, lets define the machine to extract 10 unique topics from the dataset (You can play around with the number of topics.).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number_of_topics</span> <span class="o">=</span> <span class="mi">10</span>
@@ -621,9 +565,7 @@ Name: comment_text, dtype: object
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="here-the-machine-performs-the-topic-modelling-analysis-this-might-take-a-little-while">
-<h2>Here, the machine performs the topic modelling analysis. (This might take a little while)<a class="headerlink" href="#here-the-machine-performs-the-topic-modelling-analysis-this-might-take-a-little-while" title="Permalink to this headline">¶</a></h2>
+<p>Here, the machine performs the topic modelling analysis. (This might take a little while)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">tf</span><span class="p">)</span>
@@ -651,9 +593,7 @@ Name: comment_text, dtype: object
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="each-column-in-the-table-show-the-most-significant-words-in-each-topic-with-further-analysis-we-can-understand-the-behaviour-of-the-dataset-and-type-of-conversations-that-occur-in-them">
-<h2>Each column in the table show the most significant words in each topic. With further analysis, we can understand the behaviour of the dataset and type of conversations that occur in them.<a class="headerlink" href="#each-column-in-the-table-show-the-most-significant-words-in-each-topic-with-further-analysis-we-can-understand-the-behaviour-of-the-dataset-and-type-of-conversations-that-occur-in-them" title="Permalink to this headline">¶</a></h2>
+<p>Each column in the table show the most significant words in each topic. With further analysis, we can understand the behaviour of the dataset and type of conversations that occur in them.</p>
 <p>Try changing the no_top_words variable to show more or less words in each topic.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1055,11 +995,8 @@ Name: comment_text, dtype: object
 </div>
 <p>We can go through the topics achieved to understand the most common conversations that occur in this dataset. We will be looking into this content in detail in the following section.</p>
 </div>
-</div>
 <div class="section" id="now-to-the-analysis">
-<h1>Now to the analysis!<a class="headerlink" href="#now-to-the-analysis" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="click-insert-page-name">
-<h2>Click &lt;insert Page name&gt;<a class="headerlink" href="#click-insert-page-name" title="Permalink to this headline">¶</a></h2>
+<h2>Now to the analysis!<a class="headerlink" href="#now-to-the-analysis" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 

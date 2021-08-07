@@ -19,45 +19,34 @@
 # Some comments in the dataset may have explicit language.
 # ```
 
-# We will import the necessary libraries here
+# We will import the necessary libraries here. One library will also need to be installed. 
 
 # In[1]:
 
 
+get_ipython().run_cell_magic('capture', '', '!pip install nltk')
+
+
+# In[2]:
+
+
 import pandas as pd
+import nltk
 import re
-import numpy as np
-
-import matplotlib.pyplot as plt
-import seaborn as sns
-
-
-import sklearn
-
-
-
-import nltk
-from nltk.tokenize import RegexpTokenizer
-from nltk.corpus import stopwords
-from nltk.stem import WordNetLemmatizer
-import string
-import nltk
-lemmatizer = WordNetLemmatizer()
-
 from sklearn.decomposition import LatentDirichletAllocation
 
 
-# ##### We will be reading the data into a dataframe for easy analysis.
+# We will be reading the data into a dataframe for easy analysis.
 
-# In[4]:
+# In[2]:
 
 
-df = pd.read_csv(r'PWD.csv')
+df = pd.read_csv(r'https://raw.githubusercontent.com/dudaspm/LDA_Bias_Data/main/PWD.csv')
 
 
 # This is how the data looks like:
 
-# In[5]:
+# In[3]:
 
 
 df.head()
@@ -66,7 +55,7 @@ df.head()
 # Below are just a few of the comments in this group. You can view more comments by changing the parameter in the 'head' function.
 # 
 
-# In[13]:
+# In[4]:
 
 
 pd.set_option('display.max_colwidth', None)
@@ -75,13 +64,13 @@ df.comment_text.head(3)
 
 # ##### Lets try removing unnecessary words and cleaning the statements for analysis of topics.
 
-# In[11]:
+# In[5]:
 
 
 nltk.download('stopwords')
 
 
-# In[12]:
+# In[8]:
 
 
 my_stopwords = nltk.corpus.stopwords.words('english')
@@ -110,9 +99,9 @@ t = []
 df['clean_tweet'] = df.comment_text.apply(clean_tweet)
 
 
-# ##### We will be converting the statements to a vector format for the machine to understand. 
+# We will be converting the statements to a vector format for the machine to understand. 
 
-# In[14]:
+# In[9]:
 
 
 from sklearn.feature_extraction.text import CountVectorizer
@@ -127,9 +116,9 @@ tf = vectorizer.fit_transform(df['clean_tweet']).toarray()
 tf_feature_names = vectorizer.get_feature_names()
 
 
-# ##### For the current analysis, lets define the machine to extract 10 unique topics from the dataset (You can play around with the number of topics.).
+# For the current analysis, lets define the machine to extract 10 unique topics from the dataset (You can play around with the number of topics.).
 
-# In[15]:
+# In[12]:
 
 
 number_of_topics = 10
@@ -137,15 +126,15 @@ number_of_topics = 10
 model = LatentDirichletAllocation(n_components=number_of_topics, random_state=0)
 
 
-# ##### Here, the machine performs the topic modelling analysis. (This might take a little while)
+# Here, the machine performs the topic modelling analysis. (This might take a little while)
 
-# In[16]:
+# In[13]:
 
 
 model.fit(tf)
 
 
-# In[17]:
+# In[14]:
 
 
 #Function to display the topics generated.
@@ -159,10 +148,11 @@ def display_topics(model, feature_names, no_top_words):
     return pd.DataFrame(topic_dict)
 
 
-# ##### Each column in the table show the most significant words in each topic. With further analysis, we can understand the behaviour of the dataset and type of conversations that occur in them. 
+# Each column in the table show the most significant words in each topic. With further analysis, we can understand the behaviour of the dataset and type of conversations that occur in them. 
+# 
 # Try changing the no_top_words variable to show more or less words in each topic.
 
-# In[40]:
+# In[15]:
 
 
 no_top_words = 15
@@ -171,8 +161,8 @@ display_topics(model, tf_feature_names, no_top_words)
 
 # We can go through the topics achieved to understand the most common conversations that occur in this dataset. We will be looking into this content in detail in the following section. 
 
-# # Now to the analysis!
-# ## Click \<insert Page name>
+# ## Now to the analysis!
+# 
 
 # In[ ]:
 
